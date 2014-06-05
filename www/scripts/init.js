@@ -196,7 +196,7 @@ $(document).ready(function(){
 });
 
 //this is for when the page is revisited
-$(window ).load(function() {
+$(window).load(function() {
 	format();
 });
 

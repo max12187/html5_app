@@ -181,7 +181,7 @@ $(document).ready(function(){
 
 	
 	//support for mobile swipe
-	$("#aside_button,body").on("swiperight",function(){
+	$("#aside_button").on("swiperight",function(){
 	
 		if(isHidden){
 			//expand the menu

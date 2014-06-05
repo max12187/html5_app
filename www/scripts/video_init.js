@@ -191,7 +191,7 @@ $(document).ready(function(){
 	*/
 	
 	//support for mobile swipe
-	$("html").on("swipe",function(){
+	$("html").on("swiperight",function(){
 	
 		if(isHidden){
 			//expand the menu
@@ -205,7 +205,9 @@ $(document).ready(function(){
 			//pause the video
 			$('#video').get(0).pause();
 		}
-		else{
+	});
+	$("html").on("swipeleft",function(){
+		if(!isHidden){
 			//collapse the menu
 			$("aside").hide(250);
 			$("#menu").text("Show Menu");
@@ -218,8 +220,8 @@ $(document).ready(function(){
 			$('#video').get(0).play();
 			
 		}
-		
 	});
+	
 	
 	
 	

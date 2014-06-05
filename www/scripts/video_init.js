@@ -181,6 +181,7 @@ $(document).ready(function(){
 
 	
 	//support for mobile swipe
+	/*
 	$("#aside_button").on("swiperight",function(){
 	
 		if(isHidden){
@@ -196,6 +197,25 @@ $(document).ready(function(){
 			$('#video').get(0).pause();
 		}
 	});
+	*/
+	
+	//testing hammer
+	var element = document.getElementById('aside_button');
+    var hammertime = Hammer(element).on("swiperight", function(event) {
+      if(isHidden){
+			//expand the menu
+			$("aside").show(250);
+			$("#menu").hide();
+			isHidden = false;
+			
+			//push the button over
+			$('#aside_button').animate({'left': $('aside').width() + $('#menu').width() + 50}, 250);
+			
+			//pause the video
+			$('#video').get(0).pause();
+		}
+    });
+	
 	$("#aside_button").on("swipeleft",function(){
 		if(!isHidden){
 			//collapse the menu

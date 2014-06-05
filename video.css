@@ -1,0 +1,159 @@
+article, aside, figure, footer, header, nav, section { 
+    display: block; 
+} 
+
+*{
+	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	text-shadow: none;
+	color: black;
+	
+	
+}
+
+
+body{
+	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");
+	background-size:auto;
+}
+
+#video{
+	width: 100%;
+	
+}
+
+#display{
+	margin:0 auto;
+    
+}
+
+#back_button{
+	color: black;
+}
+
+a{
+	text-decoration: none;
+}
+
+section{
+	width: 100%;
+	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");
+	background-size:auto;
+}
+
+section h1{
+	font-size: 3em;
+	background-color:white;
+	box-shadow: 2px 2px 10px grey;
+}
+
+section h2{
+	font-size: 1.25em;
+	background-color:white;
+	box-shadow: 2px 2px 10px grey;
+}
+
+section p{
+	font-size: 1em;
+}
+
+#aside_button{
+	position: fixed;
+	z-index: 2;
+	
+}
+
+aside{
+	left: 0;
+	top: 0;
+	min-width: 40%;
+	width: 40%;
+	height: 100%;
+	position: fixed;
+	overflow-y: scroll;
+	z-index: 1;
+}
+
+#aside_button{
+	position: fixed;
+	z-index: 2;
+	
+}
+
+#dev_label, #quick_label{
+	font-size: 2.5em;
+	color : black;
+	margin: auto;
+	background-color: #7B8A96;
+	
+}
+
+#menu{
+	background-color: #7B8A96;
+	font-size: 1em;
+}
+
+aside h2{
+	font-size: 1em;
+	color: white;
+}
+
+aside p{
+	font-size: .8em;
+	color: white;
+}
+
+section h1{
+	font-size: 2em;
+}
+
+section h2{
+	font-size: 1.25em;
+}
+
+section p{
+	font-size: .75em;
+}
+
+footer{
+	clear: both;
+}
+
+/* Pseudo-classes */
+a:link {color:black;}    /* unvisited link */
+a:visited {color:black;} /* visited link */
+a:hover {color:white;}   /* mouse over link */
+a:active {color:white;}  /* selected link */
+
+/* Smartphones (landscape) ----------- */
+@media all
+and (min-device-width : 321px) {
+/* Styles */
+
+	
+	
+	
+	
+	#video{
+		/*width: 50%;*/
+		
+	}
+	
+}
+
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-device-width : 1224px) {
+/* Styles */
+	
+}
+

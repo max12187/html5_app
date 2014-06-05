@@ -1,0 +1,175 @@
+article, aside, figure, footer, header, nav, section { 
+    display: block; 
+} 
+
+*{
+	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	text-shadow: none;
+	color: black;
+	
+	
+}
+
+a{
+	text-decoration: none;
+}
+
+header{
+	background-color:#044254;
+	width:100%;
+	position: fixed;
+	z-index: 1;
+	
+}
+
+#logo{
+	
+	position: relative;
+	left: 10px;
+}
+
+section{
+	float: right;
+	width: 60%;
+	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");
+	background-size:auto;
+	
+}
+
+aside{
+	min-width: 40%;
+	width: 40%;
+	height: 90%;
+	position: fixed;
+	overflow-y: scroll;
+	z-index: 1;
+	
+}
+
+#video{
+	width: 60%;
+	
+}
+
+
+#aside_button{
+	position: fixed;
+	z-index: 2;
+	
+}
+
+#dev_label, #quick_label{
+	font-size: 2.5em;
+	color : black;
+	margin: auto;
+	background-color: #7B8A96;
+	
+}
+
+#menu{
+	background-color: #7B8A96;
+	font-size: 1em;
+}
+
+aside h2{
+	font-size: 1em;
+	color: white;
+}
+
+aside p{
+	font-size: .8em;
+	color: white;
+}
+
+section h1{
+	font-size: 2em;
+}
+
+section h2{
+	font-size: 1.25em;
+}
+
+section p{
+	font-size: .75em;
+}
+
+footer{
+	clear: both;
+}
+
+/* Pseudo-classes */
+a:link {color:black;}    /* unvisited link */
+a:visited {color:black;} /* visited link */
+a:hover {color:white;}   /* mouse over link */
+a:active {color:white;}  /* selected link */
+
+
+/* for sign up overlay */
+#overlay {
+	width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 2;
+}
+/* MailChimp Form Embed Code - Slim - 08/17/2011 */
+#mc_embed_signup form {display:block; position:relative; text-align:left; padding:10px 0 10px 3%}
+#mc_embed_signup h2 {font-weight:bold; padding:0; margin:15px 0; font-size:1.4em;}
+#mc_embed_signup input {border:1px solid #999; -webkit-appearance:none;}
+#mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;}
+#mc_embed_signup input[type=radio]{-webkit-appearance:radio;}
+#mc_embed_signup input:focus {border-color:#333;}
+#mc_embed_signup .button {clear:both; background-color: #aaa; border: 0 none; border-radius:4px; color: #FFFFFF; cursor: pointer; display: inline-block; font-size:15px; font-weight: bold; height: 32px; line-height: 32px; margin: 0 5px 10px 0; padding:0; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto;}
+#mc_embed_signup .button:hover {background-color:#777;}
+#mc_embed_signup .small-meta {font-size: 11px;}
+#mc_embed_signup .nowrap {white-space:nowrap;}     
+#mc_embed_signup .clear {clear:none; display:inline;}
+
+#mc_embed_signup label {display:block; font-size:16px; padding-bottom:10px; font-weight:bold;}
+#mc_embed_signup input.email {display:block; padding:8px 0; margin:0 4% 10px 0; text-indent:5px; width:58%; min-width:130px;}
+#mc_embed_signup input.button {display:block; width:35%; margin:0 0 10px 0; min-width:90px;}
+
+#mc_embed_signup div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
+#mc_embed_signup div.response {margin:1em 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
+#mc_embed_signup #mce-error-response {display:none;}
+#mc_embed_signup #mce-success-response {color:#529214; display:none;}
+#mc_embed_signup label.error {display:block; float:none; width:auto; margin-left:1.05em; text-align:left; padding:.5em 0;}
+
+/* Smartphones (landscape) ----------- */
+@media all
+and (min-device-width : 321px) {
+/* Styles */
+
+	
+	
+	
+	
+	#video{
+		/*width: 50%;*/
+		
+	}
+	
+}
+
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-device-width : 1224px) {
+/* Styles */
+	
+}
+
+
+
+
+

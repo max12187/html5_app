@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	
+	
+	<title></title>
+	
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="video.css">
+	
+	<!-- library for RSS feed -->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+		google.load("feeds", "1");
+	</script>
+	
+	<script>
+		$(document).ready(function(){
+			
+			//the video we want is in the url
+			var s = document.URL;
+			s = s.split('?');
+			var video = s[1];
+			video = video.split('@');
+			var url = video[0];
+			var title = video[1].replace(/%20/gi," ");
+			var description = video[2].replace(/%20/gi," ");
+			
+			//remove the garbage
+			description = description.replace("%3Cp%3E","");
+			description = description.replace("%3C/p%3E","");
+			
+			//now insert the video
+			$('#display').append('<center><video id = "video" controls autoplay>' +
+			'<source src="'+url+'" type="video/mp4"></source>' +
+			'</video></center>');
+			
+			//insert the title of the video
+			$('#display').append('<h1 style = "text-align: center">'+title+'</h1>');
+			
+			//add the description
+			$('#display').append('<h2 style = "text-align: center">'+description+'</h2>');
+			
+			
+		
+		});
+	</script>
+	
+	<!-- MINE!!! -->
+	<script src="scripts/video_init.js"></script>
+	
+</head>
+
+<body>
+	
+	<header>
+		
+		
+	</header>
+	
+	<aside>
+		<div id = "dev_menu">
+			<h1 id = "dev_label" style = "text-align : center; "> Dev</h1>
+			
+		</div>
+		
+		<div id = "quick_menu">
+			<h1 id = "quick_label" style = "text-align : center"> QuickBytes</h1>
+			
+		</div>
+	</aside>
+	
+	<section>
+		
+		<div id = "aside_button">
+			<a style = "position:fixed; padding-left: 20px"><p id = "menu">Menu</p></a>
+		</div>
+	
+		<div id = "display">
+		</div>
+		
+		 <a id = "back_button" href = "index.html"><h3>Go Back</h3></a>
+		
+	</section>
+	
+	
+	
+	<footer>
+		
+		
+		
+	</footer>	
+	
+</body>
+</html>

@@ -189,6 +189,37 @@ $(document).ready(function(){
 		
 	});
 	
+	//support for mobile swipe
+	$("#aside_button").on("swipe",function(){
+	
+		if(isHidden){
+			//expand the menu
+			$("aside").show(250);
+			$("#menu").text("Hide Menu");
+			isHidden = false;
+			
+			//push the button over
+			$('#aside_button').animate({'left': $('aside').width() + $('#menu').width() + 50}, 250);
+			
+			//pause the video
+			$('#video').get(0).pause();
+		}
+		else{
+			//collapse the menu
+			$("aside").hide(250);
+			$("#menu").text("Show Menu");
+			isHidden = true;
+			
+			//move the button back
+			$('#aside_button').animate({'left':0}, 250);
+			
+			//play the video
+			$('#video').get(0).play();
+			
+		}
+		
+	});
+	
 	
 	
 	//now hide the aside on startup

@@ -156,25 +156,14 @@ $(document).ready(function(){
 
 	
 	//now for the code to hide the sidebar
-	/*
-	$("#aside_button").click(function(){
+	
+	$("body").click(function(){
 		
-		if(isHidden){
-			//expand the menu
-			$("aside").show(250);
-			$("#menu").text("Hide Menu");
-			isHidden = false;
-			
-			//push the button over
-			$('#aside_button').animate({'left': $('aside').width() + $('#menu').width() + 50}, 250);
-			
-			//pause the video
-			$('#video').get(0).pause();
-		}
-		else{
+		
+		if(!isHidden){
 			//collapse the menu
 			$("aside").hide(250);
-			$("#menu").text("Show Menu");
+			$("#menu").show();
 			isHidden = true;
 			
 			//move the button back
@@ -188,15 +177,15 @@ $(document).ready(function(){
 	
 		
 	});
-	*/
+	
 	
 	//support for mobile swipe
-	$("html").on("swiperight",function(){
+	$("#aside_button").on("swiperight",function(){
 	
 		if(isHidden){
 			//expand the menu
 			$("aside").show(250);
-			$("#menu").text("Hide Menu");
+			$("#menu").hide();
 			isHidden = false;
 			
 			//push the button over
@@ -206,11 +195,11 @@ $(document).ready(function(){
 			$('#video').get(0).pause();
 		}
 	});
-	$("html").on("swipeleft",function(){
+	$("#aside_button,body").on("swipeleft",function(){
 		if(!isHidden){
 			//collapse the menu
 			$("aside").hide(250);
-			$("#menu").text("Show Menu");
+			$("#menu").show();
 			isHidden = true;
 			
 			//move the button back

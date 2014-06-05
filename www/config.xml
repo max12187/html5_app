@@ -6,7 +6,7 @@
 	<description>
 		A test build
 	</description>
-	<preference name="Orientation" value="landscape" />
+	<preference name="orientation" value="landscape" />
 	<author href="http://yoursite.com" email="contact@yoursite.com">
 		Author Name
 	</author>

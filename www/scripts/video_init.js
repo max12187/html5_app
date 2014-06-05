@@ -178,9 +178,10 @@ $(document).ready(function(){
 		
 	});
 	
+
 	
 	//support for mobile swipe
-	$("#aside_button").on("swiperight",function(){
+	$("#aside_button,body").on("swiperight",function(){
 	
 		if(isHidden){
 			//expand the menu
@@ -195,7 +196,7 @@ $(document).ready(function(){
 			$('#video').get(0).pause();
 		}
 	});
-	$("#aside_button,body").on("swipeleft",function(){
+	$("#aside_button").on("swipeleft",function(){
 		if(!isHidden){
 			//collapse the menu
 			$("aside").hide(250);

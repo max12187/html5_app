@@ -157,7 +157,7 @@ $(document).ready(function(){
 	
 	//now for the code to hide the sidebar
 	
-	$("body").click(function(){
+	$(document).click(function(){
 		
 		
 		if(!isHidden){
@@ -182,7 +182,7 @@ $(document).ready(function(){
 	
 	//support for mobile swipe
 	
-	$("document").on("swiperight",function(){
+	$(document).on("swiperight",function(){
 	
 		if(isHidden){
 			//expand the menu
@@ -216,7 +216,7 @@ $(document).ready(function(){
 		}
     });
 	
-	$("#aside_button").on("swipeleft",function(){
+	$(document).on("swipeleft",function(){
 		if(!isHidden){
 			//collapse the menu
 			$("aside").hide(250);

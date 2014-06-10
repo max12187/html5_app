@@ -87,9 +87,36 @@ aside{
 	
 }
 
+/*
 #menu{
 	background-color: #7B8A96;
 	font-size: 1em;
+}
+*/
+
+#side_overlay{
+	position: fixed;
+	width: 5%;
+	height: 100%; 
+	top: 0;
+	left: 0;
+	background-color: black;
+	opacity:0.25;
+}
+
+.rotate{
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	color: black;
+	font-size: 1em;
+	
 }
 
 aside h2{

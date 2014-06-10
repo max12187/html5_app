@@ -162,15 +162,20 @@ $(document).ready(function(){
 		
 		if(!isHidden){
 			//collapse the menu
-			$("aside").hide(250);
-			$("#menu").show();
+			//$("aside").hide(250);
+			
+			$("aside").animate({'left':'-38%','opacity':'0.25'},500);
+			
+			
 			isHidden = true;
 			
-			//move the button back
-			$('#aside_button').animate({'left':0}, 250);
+			
 			
 			//play the video
-			$('#video').get(0).play();
+			//$('#video').get(0).play();
+			
+			//put the section back in focus
+			$("section").animate({'opacity':'1'},500);
 			
 		}
 		
@@ -180,44 +185,54 @@ $(document).ready(function(){
 	
 	//now using the Hammer.js library
 	var hammertime = Hammer(document,{
-		dragMinDistance: 0
+		dragMinDistance: 50
 	});
 	
     hammertime.on("dragright", function(event) {
       if(isHidden){
 			//expand the menu
-			$("aside").show(250);
-			$("#menu").hide();
+			//$("aside").show(250);
+			
+			$("aside").animate({'left':'0','opacity':'1'},500);
+			
+			
 			isHidden = false;
 			
-			//push the button over
-			$('#aside_button').animate({'left': $('aside').width() + $('#menu').width() + 50}, 250);
+			
 			
 			//pause the video
 			$('#video').get(0).pause();
+			
+			//now dim the section, put it out of focus
+			$("section").animate({'opacity':'0.10'},500);
 		}
     });
 	
     hammertime.on("dragleft", function(event) {
       if(!isHidden){
 			//collapse the menu
-			$("aside").hide(250);
-			$("#menu").show();
+			//$("aside").hide(250);
+			
+			$("aside").animate({'left':'-38%','opacity':'0.25'},500);
+			
+			
 			isHidden = true;
 			
-			//move the button back
-			$('#aside_button').animate({'left':0}, 250);
+			
 			
 			//play the video
 			//$('#video').get(0).play();
 			
+			//put the section back in focus
+			$("section").animate({'opacity':'1'},500);
 		}
     });
 	
 	
 	
 	//now hide the aside on startup
-	$("aside").hide();
+	//$("aside").hide();
+	$("aside").css({'left':'-38%','opacity':'0.25'});
 	$("#menu").text("Show Menu");
 	
 	

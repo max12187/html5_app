@@ -181,7 +181,7 @@ $(document).ready(function(){
 
 	
 	//support for mobile swipe
-	
+	/*
 	$(document).on("swiperight",function(){
 	
 		if(isHidden){
@@ -197,11 +197,14 @@ $(document).ready(function(){
 			$('#video').get(0).pause();
 		}
 	});
-	
+	*/
 	
 	//testing hammer
-	var element = document.getElementById('aside_button');
-    var hammertime = Hammer(document).on("swiperight", function(event) {
+	//var element = document.getElementById('aside_button');
+	var hammertime = Hammer(document,{
+		dragMinDistance: 0
+	});
+    hammertime.on("dragright", function(event) {
       if(isHidden){
 			//expand the menu
 			$("aside").show(250);
@@ -216,6 +219,7 @@ $(document).ready(function(){
 		}
     });
 	
+	/*
 	$(document).on("swipeleft",function(){
 		if(!isHidden){
 			//collapse the menu
@@ -231,7 +235,26 @@ $(document).ready(function(){
 			
 		}
 	});
+	*/
 	
+	hammertime = Hammer(document,{
+		dragMinDistance: 0
+	});
+    hammertime.on("dragleft", function(event) {
+      if(!isHidden){
+			//collapse the menu
+			$("aside").hide(250);
+			$("#menu").show();
+			isHidden = true;
+			
+			//move the button back
+			$('#aside_button').animate({'left':0}, 250);
+			
+			//play the video
+			$('#video').get(0).play();
+			
+		}
+    });
 	
 	
 	

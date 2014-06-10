@@ -164,7 +164,7 @@ $(document).ready(function(){
 			//collapse the menu
 			//$("aside").hide(250);
 			
-			$("aside").animate({'left':'-38%','opacity':'0.25'},500);
+			$("aside").animate({'left':'-38%','opacity':'0.25'},250);
 			
 			
 			isHidden = true;
@@ -175,7 +175,7 @@ $(document).ready(function(){
 			//$('#video').get(0).play();
 			
 			//put the section back in focus
-			$("section").animate({'opacity':'1'},500);
+			$("section").animate({'opacity':'1'},250);
 			
 		}
 		
@@ -193,7 +193,7 @@ $(document).ready(function(){
 			//expand the menu
 			//$("aside").show(250);
 			
-			$("aside").animate({'left':'0','opacity':'1'},500);
+			$("aside").animate({'left':'0','opacity':'1'},250);
 			
 			
 			isHidden = false;
@@ -204,7 +204,7 @@ $(document).ready(function(){
 			$('#video').get(0).pause();
 			
 			//now dim the section, put it out of focus
-			$("section").animate({'opacity':'0.10'},500);
+			$("section").animate({'opacity':'0.10'},250);
 		}
     });
 	
@@ -213,7 +213,7 @@ $(document).ready(function(){
 			//collapse the menu
 			//$("aside").hide(250);
 			
-			$("aside").animate({'left':'-38%','opacity':'0.25'},500);
+			$("aside").animate({'left':'-38%','opacity':'0.25'},250);
 			
 			
 			isHidden = true;
@@ -224,7 +224,7 @@ $(document).ready(function(){
 			//$('#video').get(0).play();
 			
 			//put the section back in focus
-			$("section").animate({'opacity':'1'},500);
+			$("section").animate({'opacity':'1'},250);
 		}
     });
 	

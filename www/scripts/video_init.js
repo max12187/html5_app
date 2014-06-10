@@ -181,8 +181,8 @@ $(document).ready(function(){
 
 	
 	//support for mobile swipe
-	/*
-	$("#aside_button").on("swiperight",function(){
+	
+	$("document").on("swiperight",function(){
 	
 		if(isHidden){
 			//expand the menu
@@ -197,11 +197,11 @@ $(document).ready(function(){
 			$('#video').get(0).pause();
 		}
 	});
-	*/
+	
 	
 	//testing hammer
 	var element = document.getElementById('aside_button');
-    var hammertime = Hammer(element).on("swiperight", function(event) {
+    var hammertime = Hammer(document).on("swiperight", function(event) {
       if(isHidden){
 			//expand the menu
 			$("aside").show(250);

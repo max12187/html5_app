@@ -178,32 +178,11 @@ $(document).ready(function(){
 		
 	});
 	
-
-	
-	//support for mobile swipe
-	/*
-	$(document).on("swiperight",function(){
-	
-		if(isHidden){
-			//expand the menu
-			$("aside").show(250);
-			$("#menu").hide();
-			isHidden = false;
-			
-			//push the button over
-			$('#aside_button').animate({'left': $('aside').width() + $('#menu').width() + 50}, 250);
-			
-			//pause the video
-			$('#video').get(0).pause();
-		}
-	});
-	*/
-	
-	//testing hammer
-	//var element = document.getElementById('aside_button');
+	//now using the Hammer.js library
 	var hammertime = Hammer(document,{
 		dragMinDistance: 0
 	});
+	
     hammertime.on("dragright", function(event) {
       if(isHidden){
 			//expand the menu
@@ -219,27 +198,6 @@ $(document).ready(function(){
 		}
     });
 	
-	/*
-	$(document).on("swipeleft",function(){
-		if(!isHidden){
-			//collapse the menu
-			$("aside").hide(250);
-			$("#menu").show();
-			isHidden = true;
-			
-			//move the button back
-			$('#aside_button').animate({'left':0}, 250);
-			
-			//play the video
-			$('#video').get(0).play();
-			
-		}
-	});
-	*/
-	
-	hammertime = Hammer(document,{
-		dragMinDistance: 0
-	});
     hammertime.on("dragleft", function(event) {
       if(!isHidden){
 			//collapse the menu
@@ -251,7 +209,7 @@ $(document).ready(function(){
 			$('#aside_button').animate({'left':0}, 250);
 			
 			//play the video
-			$('#video').get(0).play();
+			//$('#video').get(0).play();
 			
 		}
     });

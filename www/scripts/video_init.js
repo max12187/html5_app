@@ -185,7 +185,7 @@ $(document).ready(function(){
 	
 	//now using the Hammer.js library
 	var hammertime = Hammer(document,{
-		dragMinDistance: 50
+		dragMinDistance: 0
 	});
 	
     hammertime.on("dragright", function(event) {

@@ -40,7 +40,7 @@
 			description = description.replace("%3C/p%3E","");
 			
 			//now insert the video
-			$('#display').append('<center><video id = "video" controls autoplay>' +
+			$('#display').append('<center><video id = "video" autobuffer controls autoplay>' +
 			'<source src="'+url+'" type="video/mp4"></source>' +
 			'</video></center>');
 			

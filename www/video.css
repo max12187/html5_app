@@ -73,18 +73,21 @@ aside{
 	z-index: 1;
 }
 
-#aside_button{
-	position: fixed;
-	z-index: 2;
-	
-}
-
 #dev_label, #quick_label{
 	font-size: 2.5em;
 	color : black;
 	margin: auto;
 	background-color: #7B8A96;
 	
+}
+
+#back_button h3{
+	position: fixed;
+	top: 90%;
+	background-color: #7B8A96;
+	margin: auto;
+	padding: auto;
+	font-size: 2em;
 }
 
 /*
@@ -104,20 +107,6 @@ aside{
 	opacity:0.25;
 }
 
-.rotate{
-	position: absolute;
-	width: 100%;
-	top: 0;
-	left: 0;
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg);
-	-o-transform: rotate(-90deg);
-	transform: rotate(-90deg);
-	color: black;
-	font-size: 1em;
-	
-}
 
 aside h2{
 	font-size: 1em;

@@ -49,7 +49,8 @@ $(document).ready(function(){
 	
 	//now using the Hammer.js library
 	var hammertime = Hammer(document,{
-		dragMinDistance: 0
+		dragMinDistance: 0,
+		dragMaxTouches: 2
 	});
 	
     hammertime.on("dragright", function(event) {
@@ -63,6 +64,8 @@ $(document).ready(function(){
 			
 			//now dim the section, put it out of focus
 			$("section").animate({'opacity':'0.10'},250);
+			
+			console.log(event);
 		}
     });
 	

@@ -81,12 +81,8 @@ aside{
 	
 }
 
-#back_button h3{
-	position: fixed;
-	top: 90%;
+#back_button h3{	
 	background-color: #7B8A96;
-	margin: auto;
-	padding: auto;
 	font-size: 2em;
 }
 

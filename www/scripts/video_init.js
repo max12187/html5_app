@@ -47,6 +47,28 @@ $(document).ready(function(){
 		
 	});
 	
+	$('#aside_button').click(function(){
+		
+		
+		 if(isHidden){
+			$("aside").css({'left':'0','opacity':'1'});
+			
+			isHidden = false;
+			
+			//pause the video
+			$('#video').get(0).pause();
+			
+			//now dim the section, put it out of focus
+			$("section").animate({'opacity':'0.10'},250);
+			
+			
+		}
+		
+	
+		
+	});
+	
+	
 	//now using the Hammer.js library
 	var hammertime = Hammer(document,{
 		dragMinDistance: 0,

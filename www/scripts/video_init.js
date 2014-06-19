@@ -30,11 +30,11 @@ $(document).ready(function(){
 
 
 	//now for the code to hide the sidebar
-	$(document).click(function(){
+	$("section").click(function(){
 		
 		
 		if(!isHidden){
-			$("aside").animate({'left':'-38%','opacity':'0.25'},250);
+			$("aside").css({'left':'-38%','opacity':'0.25'});
 			
 			isHidden = true;
 			
@@ -55,7 +55,7 @@ $(document).ready(function(){
 	
     hammertime.on("dragright", function(event) {
       if(isHidden){
-			$("aside").animate({'left':'0','opacity':'1'},250);
+			$("aside").css({'left':'0','opacity':'1'});
 			
 			isHidden = false;
 			
@@ -71,7 +71,7 @@ $(document).ready(function(){
 	
     hammertime.on("dragleft", function(event) {
       if(!isHidden){
-			$("aside").animate({'left':'-38%','opacity':'0.25'},250);
+			$("aside").css({'left':'-38%','opacity':'0.25'});
 			
 			isHidden = true;
 			

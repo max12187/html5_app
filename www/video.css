@@ -84,14 +84,10 @@ aside{
 #back_button h3{	
 	background-color: #7B8A96;
 	font-size: 2em;
+	-moz-appearance:button; /* Firefox */
+    -webkit-appearance:button; /* Safari and Chrome */
+    appearance:button;
 }
-
-/*
-#menu{
-	background-color: #7B8A96;
-	font-size: 1em;
-}
-*/
 
 #side_overlay{
 	position: fixed;

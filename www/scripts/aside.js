@@ -86,6 +86,7 @@ $(document).ready(function(){
 					$('#dev_link'+i).css({'color':'white'});
 					$('#dev_link'+i).css({'margin':'auto'});
 					$('#dev_link'+i).css({'padding':'10px'});
+					$('#dev_link'+i).css({'-webkit-appearance':'button'});
 						
 						
 				}
@@ -162,6 +163,7 @@ $(document).ready(function(){
 					$('#quick_link'+i).css({'color':'white'});
 					$('#quick_link'+i).css({'margin':'auto'});
 					$('#quick_link'+i).css({'padding':'10px'});
+					$('#quick_link'+i).css({'-webkit-appearance':'button'});
 						
 						
 				}

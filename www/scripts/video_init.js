@@ -124,6 +124,17 @@ $(document).ready(function(){
 	
 	
 	
+	//now lets dynamically resize the elements on the page to make them fit
+	var height = $(document).height() - 50;
+	var titleHeight = $("#title").height();
+	console.log(titleHeight);
+
+	
+
+	$('#video').css({'height':height - (2*titleHeight)});
+	
+	
+	
 });
 
 

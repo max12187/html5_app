@@ -64,7 +64,7 @@ section{
 }
 
 section h1{
-	font-size: 3em;
+	font-size: 1em;
 	background-color:white;
 	box-shadow: 2px 2px 10px grey;
 	
@@ -73,7 +73,7 @@ section h1{
 }
 
 section h2{
-	font-size: 1.25em;
+	font-size: .75em;
 	background-color:white;
 	box-shadow: 2px 2px 10px grey;
 }
@@ -138,14 +138,6 @@ aside p{
 	color: white;
 }
 
-section h1{
-	font-size: 2em;
-}
-
-section h2{
-	font-size: 1em;
-}
-
 section p{
 	font-size: .75em;
 }
@@ -159,37 +151,4 @@ a:link {color:black;}    /* unvisited link */
 a:visited {color:black;} /* visited link */
 a:hover {color:white;}   /* mouse over link */
 a:active {color:white;}  /* selected link */
-
-/* Smartphones (landscape) ----------- */
-@media all
-and (min-device-width : 321px) {
-/* Styles */
-
-	
-	
-	
-	
-	#video{
-		/*width: 50%;*/
-		
-	}
-	
-}
-
-
-/* iPads (landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) {
-/* Styles */
-}
-
-
-/* Desktops and laptops ----------- */
-@media only screen 
-and (min-device-width : 1224px) {
-/* Styles */
-	
-}
 

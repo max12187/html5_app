@@ -83,7 +83,9 @@ section p{
 
 #aside_button{
 	position: fixed;
-	z-index: 2;
+	left:0;
+	top:0;
+	
 	
 }
 

@@ -17,6 +17,7 @@ function callBack(i, s){
 		
 		//now adjust the css
 		$("section").css({'width':'100%'});
+		$("section").css({'width':'100%'});
 		$("#menu").text("Show Menu");
 		isHidden = true;
 		
@@ -25,16 +26,29 @@ function callBack(i, s){
 	}
 }
 
-/*
+
 function expandMenu(){
-	var width = $('aside').width();
-	$('#aside_button').css({'left':width});
+	$("aside").css({'left':'0'});
+			
+	isHidden = false;
+			
+	//pause the video
+	$('#video').get(0).pause();
+			
+	//now dim the section, put it out of focus
+	$("section").css({'opacity':'0.10'});
 }
 
 function retractMenu(){
-	$('#aside_button').css({'left':0});
+	$("aside").css({'left':'-40%'});
+			
+	isHidden = true;
+			
+	//put the section back in focus
+	$("section").css({'opacity':'1'});
+			
 }
-*/
+
 
 $(document).ready(function(){
 
@@ -44,14 +58,8 @@ $(document).ready(function(){
 		
 		
 		if(!isHidden){
-			$("aside").css({'left':'-38%','opacity':'0.25'});
 			
-			isHidden = true;
-			
-			//put the section back in focus
-			$("section").animate({'opacity':'1'},250);
-			
-			//retractMenu();
+			retractMenu();
 		}
 		
 	
@@ -63,31 +71,18 @@ $(document).ready(function(){
 		
 		
 		 if(isHidden){
-			$("aside").css({'left':'0','opacity':'1'});
-			
-			isHidden = false;
-			
-			//pause the video
-			$('#video').get(0).pause();
-			
-			//now dim the section, put it out of focus
-			$("section").animate({'opacity':'0.10'},250);
 			
 			
 			
-			//expandMenu();
+			
+			expandMenu();
 			
 			
 		}
 		else{
-			$("aside").css({'left':'-38%','opacity':'0.25'});
+		
 			
-			isHidden = true;
-			
-			//put the section back in focus
-			$("section").animate({'opacity':'1'},250);
-			
-			//retractMenu();
+			retractMenu();
 		
 			
 		}
@@ -106,30 +101,17 @@ $(document).ready(function(){
 	
     hammertime.on("dragright", function(event) {
       if(isHidden){
-			$("aside").css({'left':'0','opacity':'1'});
 			
-			isHidden = false;
 			
-			//pause the video
-			$('#video').get(0).pause();
-			
-			//now dim the section, put it out of focus
-			$("section").animate({'opacity':'0.10'},250);
-			
-			//expandMenu();
+			expandMenu();
 		}
     });
 	
     hammertime.on("dragleft", function(event) {
       if(!isHidden){
-			$("aside").css({'left':'-38%','opacity':'0.25'});
 			
-			isHidden = true;
 			
-			//put the section back in focus
-			$("section").animate({'opacity':'1'},250);
-			
-			//retractMenu();
+			retractMenu();
 		}
     });
 	
@@ -137,7 +119,7 @@ $(document).ready(function(){
 	
 	//now hide the aside on startup
 	//$("aside").hide();
-	$("aside").css({'left':'-38%','opacity':'0.25'});
+	$("aside").css({'left':'-40%'});
 	$("#menu").text("Show Menu");
 	
 	

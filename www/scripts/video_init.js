@@ -47,6 +47,7 @@ $(document).ready(function(){
 		
 	});
 	
+	//for the aside button
 	$('#aside_button').click(function(){
 		
 		
@@ -63,10 +64,20 @@ $(document).ready(function(){
 			
 			
 		}
+		else{
+			$("aside").css({'left':'-38%','opacity':'0.25'});
+			
+			isHidden = true;
+			
+			//put the section back in focus
+			$("section").animate({'opacity':'1'},250);
+		
+		}
 		
 	
 		
 	});
+	
 	
 	
 	//now using the Hammer.js library

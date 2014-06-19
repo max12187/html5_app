@@ -25,6 +25,7 @@ function callBack(i, s){
 	}
 }
 
+/*
 function expandMenu(){
 	var width = $('aside').width();
 	$('#aside_button').css({'left':width});
@@ -33,6 +34,7 @@ function expandMenu(){
 function retractMenu(){
 	$('#aside_button').css({'left':0});
 }
+*/
 
 $(document).ready(function(){
 
@@ -49,7 +51,7 @@ $(document).ready(function(){
 			//put the section back in focus
 			$("section").animate({'opacity':'1'},250);
 			
-			retractMenu();
+			//retractMenu();
 		}
 		
 	
@@ -71,7 +73,9 @@ $(document).ready(function(){
 			//now dim the section, put it out of focus
 			$("section").animate({'opacity':'0.10'},250);
 			
-			expandMenu();
+			
+			
+			//expandMenu();
 			
 			
 		}
@@ -83,8 +87,9 @@ $(document).ready(function(){
 			//put the section back in focus
 			$("section").animate({'opacity':'1'},250);
 			
-			retractMenu();
+			//retractMenu();
 		
+			
 		}
 		
 	
@@ -111,7 +116,7 @@ $(document).ready(function(){
 			//now dim the section, put it out of focus
 			$("section").animate({'opacity':'0.10'},250);
 			
-			expandMenu();
+			//expandMenu();
 		}
     });
 	
@@ -124,7 +129,7 @@ $(document).ready(function(){
 			//put the section back in focus
 			$("section").animate({'opacity':'1'},250);
 			
-			retractMenu();
+			//retractMenu();
 		}
     });
 	

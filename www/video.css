@@ -41,8 +41,18 @@ body{
 }
 
 #back_button{
+	background-color: #7B8A96;
 	color: black;
+	height: 50px;
+	position: fixed;
+	top: 0;
+	left: 300px;
+	-moz-appearance:button; /* Firefox */
+    -webkit-appearance:button; /* Safari and Chrome */
+    appearance:button;
+	z-index: 100;
 }
+
 
 #aside_button{
 	height: 50px;
@@ -82,14 +92,6 @@ section p{
 	font-size: 1em;
 }
 
-#aside_button{
-	position: fixed;
-	left:0;
-	top:0;
-	
-	
-}
-
 aside{
 	left: 0;
 	top: 50px;
@@ -109,13 +111,7 @@ aside{
 	
 }
 
-#back_button h3{	
-	background-color: #7B8A96;
-	font-size: 2em;
-	-moz-appearance:button; /* Firefox */
-    -webkit-appearance:button; /* Safari and Chrome */
-    appearance:button;
-}
+
 
 #side_overlay{
 	position: fixed;

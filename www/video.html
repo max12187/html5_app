@@ -50,7 +50,9 @@
 			//add the description
 			$('#display').append('<h2 style = "text-align: center">'+description+'</h2>');
 			
-			
+			//now lets move the home icon to the right
+			var width = $('body').width() - 50;
+			$('#back_button').css({'left':width});
 		
 		});
 	</script>
@@ -91,7 +93,7 @@
 		<div id = "display">
 		</div>
 		
-		 <a id = "back_button" href = "index.html" target="_self"><h3>Go Back</h3></a>
+		 <a href = "index.html" target="_self"><img id = "back_button" src = "img/home.png"></a>
 		
 	</section>
 	

@@ -33,11 +33,20 @@
 			video = video.split('@');
 			var url = video[0];
 			var title = video[1].replace(/%20/gi," ");
-			var description = video[2].replace(/%20/gi," ");
 			
-			//remove the garbage
-			description = description.replace("%3Cp%3E","");
-			description = description.replace("%3C/p%3E","");
+			try {
+				var description = video[2].replace(/%20/gi," ");
+				
+				//remove the garbage
+				description = description.replace("%3Cp%3E","");
+				description = description.replace("%3C/p%3E","");
+			}
+			catch(err) {
+				description = "No description available";
+			}
+			
+			
+			
 			
 			//now insert the video
 			$('#display').append('<center><video id = "video" autobuffer controls autoplay>' +
@@ -92,6 +101,7 @@
 		<!-- sidebar overlay -->
 		<div id = "display">
 		</div>
+		
 		
 		 <a href = "index.html" target="_self"><img id = "back_button" src = "img/home.png"></a>
 		

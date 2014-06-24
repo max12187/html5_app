@@ -108,11 +108,11 @@ a:active {color:white;}  /* selected link */
 /* for sign up overlay */
 #overlay {
 	width: 100%;
-    position: fixed;
+	position:absolute;
     top: 0;
     left: 0;
     background-color: white;
-    z-index: 2;
+    z-index: 1000;
 }
 /* MailChimp Form Embed Code - Slim - 08/17/2011 */
 #mc_embed_signup form {display:block; position:relative; text-align:left; padding:10px 0 10px 3%}

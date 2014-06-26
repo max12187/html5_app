@@ -101,6 +101,7 @@ aside{
 	position: fixed;
 	overflow-y: scroll;
 	z-index: 1;
+	box-shadow: 7px 7px 3px #888888;
 }
 
 #dev_label, #quick_label{

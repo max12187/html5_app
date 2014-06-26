@@ -28,7 +28,7 @@ function callBack(i, s){
 
 
 function expandMenu(){
-	$("aside").css({'left':'0'});
+	$("aside").show();
 			
 	isHidden = false;
 			
@@ -40,7 +40,7 @@ function expandMenu(){
 }
 
 function retractMenu(){
-	$("aside").css({'left':'-40%'});
+	$("aside").hide();
 			
 	isHidden = true;
 			
@@ -119,7 +119,7 @@ $(document).ready(function(){
 	
 	//now hide the aside on startup
 	//$("aside").hide();
-	$("aside").css({'left':'-40%'});
+	$("aside").hide();
 	$("#menu").text("Show Menu");
 	
 	

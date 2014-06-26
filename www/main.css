@@ -64,7 +64,6 @@ aside{
 	color : black;
 	margin: auto;
 	background-color: #7B8A96;
-	
 }
 
 #dev, #quick{
@@ -72,11 +71,12 @@ aside{
 	width: 95%;
 	margin: auto;
 	-webkit-appearance:button;
-	box-shadow: 5px 5px 3px #888888;
+	box-shadow: 5px 5px 10px 3px #888888;
 }
 
 #dev_latest, #quick_latest{
-	background-color: #004669;
+	background-color: rgba(0, 70, 105, 0.8); 
+	opacity: .9;
 }
 
 #menu{

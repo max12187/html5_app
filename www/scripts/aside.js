@@ -47,7 +47,7 @@ $(document).ready(function(){
 				$('#dev').append('<a href=""><div id = "dev'+ i +'"></div></a>');
 						
 				//now create a new click event for the new div
-				$('#dev'+i).click(videoCallback(dev_videos[i]));
+				$('#dev').click(videoCallback(dev_videos[i]));
 						
 				//add the rules to the new div we created
 				$('#dev'+i).css({
@@ -126,7 +126,7 @@ $(document).ready(function(){
 				$('#quick').append('<a href=""><div id = "quick'+ i +'"></div></a>');
 						
 				//now create a new click event for the new div
-				$('#quick'+i).click(videoCallback(quick_videos[i]));
+				$('#quick').click(videoCallback(quick_videos[i]));
 						
 				//add the rules to the new div we created
 				$('#quick'+i).css({

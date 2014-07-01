@@ -7,7 +7,8 @@
 		A test build
 	</description>
 	<preference name="orientation" value="landscape" />
-	<author href="http://yoursite.com" email="contact@yoursite.com">
-		Author Name
+	<author href="https://learntoprogram.tv/" email="mark@learntoprogram.tv">
+		LearnToProgram.tv
 	</author>
+	<icon src="img/icon.png" />
 </widget>

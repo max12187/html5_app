@@ -11,4 +11,5 @@
 		LearnToProgram.tv
 	</author>
 	<icon src="img/icon.png" />
+	<gap:splash src="splash.png" />
 </widget>

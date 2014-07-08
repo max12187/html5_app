@@ -16,12 +16,11 @@
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" type="text/css" media="all" /> 
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.min.js" type="text/javascript"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script>
-	
-	<script src="https://raw.github.com/scdoshi/jquery-ajaxchimp/master/jquery.ajaxchimp.js" type="text/javascript"></script>
 
 	<!-- MINE!!! -->
 	<script src="scripts/init.js"></script>
 	<script src="scripts/aside.js"></script>
+	<script src="scripts/hammer.min.js"></script>
 	
 	<script src="phonegap.js"></script>
 	
@@ -34,8 +33,9 @@
 	<script>
 		$(document).ready(function(){
 		
-			//hide the sign up form 
+			//hide the sign up form and aside
 			$('#overlay').hide();
+			$('aside').hide();
 			
 			
 		});
@@ -43,14 +43,18 @@
 	</script>
 
 	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="aside.css">
 
 </head>
 
 <body>
 	
 	<header>
+		<img id = "aside_button" src = "img/threelines.png" style="float:left;">
 		<!-- Logo -->
-		<img id = "logo" src = "img/logo.png">
+		<img id = "logo" src = "img/logo.png" style="float:left;">
+		<!-- signup button -->
+		<img onclick="$('#overlay').show()" src = "img/subscribe.png" style = "width:100px;"></img>
 		
 	</header>
 	
@@ -280,24 +284,28 @@ function mce_success_cb(resp){
 	</div>
 	
 	<aside>
-		<!-- signup button -->
-		<button onclick="$('#overlay').show()">Programming courses</button>
+		
 	
 		<div id = "dev_menu">
-			<h1 id = "dev_label" style = "text-align : center; "> Dev</h1>
+			<div id = "dev_label">
+				<h1 style = "text-align : center; color: white; margin:0;"> DEV</h1>
+				<center><h2 style = "color: white; padding-bottom:7px;">News for New Web, Mobile, and Game Developers.</h2></center>
+			</div>
 			
 		</div>
 		
 		<div id = "quick_menu">
-			<h1 id = "quick_label" style = "text-align : center"> QuickBytes</h1>
-			
+			<div id = "quick_label">
+				<h1 style = "text-align : center; color: white;"> QuickBytes</h1>
+				<center><h2 style = "color: white;">Easy Programming Tutorials for Beginners</h2></center>
+			</div>
 		</div>
 	</aside>
 	
 	<section>
 		
 		<div id = "dev" style = "text-align : center">
-			<h1 id = "dev_latest">Latest in Dev</h1>
+			<h1 id = "dev_latest">Latest in DEV</h1>
 		</div>
 		
 		<div id = "quick" style = "text-align : center;">

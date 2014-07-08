@@ -92,17 +92,7 @@ section p{
 	font-size: 1em;
 }
 
-aside{
-	left: 0;
-	top: 50px;
-	min-width: 40%;
-	width: 40%;
-	height: 100%;
-	position: fixed;
-	overflow-y: scroll;
-	z-index: 1;
-	box-shadow: 5px 2px 5px 2px #888888;
-}
+
 
 #dev_label, #quick_label{
 	font-size: 2.5em;
@@ -127,12 +117,10 @@ aside{
 
 aside h2{
 	font-size: 1em;
-	color: white;
 }
 
 aside p{
 	font-size: .8em;
-	color: white;
 }
 
 section p{

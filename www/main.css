@@ -8,6 +8,7 @@ article, aside, figure, footer, header, nav, section {
 	color: black;
 	
 	
+	
 }
 
 a{
@@ -15,10 +16,11 @@ a{
 }
 
 header{
-	background-color:#044254;
+	background-color:#004669;
 	width:100%;
 	position: fixed;
 	z-index: 1;
+	
 	
 }
 
@@ -29,22 +31,14 @@ header{
 }
 
 section{
-	float: right;
-	width: 60%;
+	
+	width: 100%;
 	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");
 	background-size:auto;
 	
 }
 
-aside{
-	min-width: 40%;
-	width: 40%;
-	height: 90%;
-	position: fixed;
-	overflow-y: scroll;
-	z-index: 1;
-	
-}
+
 
 #video{
 	width: 60%;
@@ -54,16 +48,15 @@ aside{
 
 
 #aside_button{
-	position: fixed;
-	z-index: 2;
+
 	
 }
 
 #dev_label, #quick_label{
-	font-size: 2.5em;
-	color : black;
-	margin: auto;
-	background-color: #7B8A96;
+	
+	color: white;
+	margin:0;
+	background-color: #004669;
 	
 }
 
@@ -76,7 +69,7 @@ aside{
 }
 
 #dev_latest, #quick_latest{
-	background-color: #004669;
+	background-color: #cccccc;
 }
 
 #menu{
@@ -85,13 +78,13 @@ aside{
 }
 
 aside h2{
-	font-size: 1em;
-	color: white;
+	font-size: 1.25em;
+	
 }
 
 aside p{
 	font-size: .8em;
-	color: white;
+
 }
 
 section h1{

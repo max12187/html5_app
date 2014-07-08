@@ -1,9 +1,7 @@
 //this script will get and parse out the xml
 //then display the videos and apply some formatting
 
-//flag for the sidebar hiding function
-var isHidden = true;
-	
+
 
 //callback function for jquery
 function callBack(i, s){
@@ -27,93 +25,8 @@ function callBack(i, s){
 }
 
 
-function expandMenu(){
-	$("aside").show();
-			
-	isHidden = false;
-			
-	//pause the video
-	$('#video').get(0).pause();
-			
-	//now dim the section, put it out of focus
-	$("section").css({'opacity':'0.10'});
-}
-
-function retractMenu(){
-	$("aside").hide();
-			
-	isHidden = true;
-			
-	//put the section back in focus
-	$("section").css({'opacity':'1'});
-			
-}
-
 
 $(document).ready(function(){
-
-
-	//now for the code to hide the sidebar
-	$("section").click(function(){
-		
-		
-		if(!isHidden){
-			
-			retractMenu();
-		}
-		
-	
-		
-	});
-	
-	//for the aside button
-	$('#aside_button').click(function(){
-		
-		
-		 if(isHidden){
-			
-			
-			
-			
-			expandMenu();
-			
-			
-		}
-		else{
-		
-			
-			retractMenu();
-		
-			
-		}
-		
-	
-		
-	});
-	
-	
-	
-	//now using the Hammer.js library
-	var hammertime = Hammer(document,{
-		dragMinDistance: 0,
-		dragMaxTouches: 2
-	});
-	
-    hammertime.on("dragright", function(event) {
-      if(isHidden){
-			
-			
-			expandMenu();
-		}
-    });
-	
-    hammertime.on("dragleft", function(event) {
-      if(!isHidden){
-			
-			
-			retractMenu();
-		}
-    });
 	
 	
 	

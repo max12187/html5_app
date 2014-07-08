@@ -1,3 +1,6 @@
+//flag for the sidebar hiding function
+var isHidden = true;
+
 //A class that represents each video
 function Video(title, description, url){
 	this.title = title;
@@ -11,6 +14,29 @@ function videoCallback(type, video){
 		window.open("video.html?"+type+'@'+video.url+'@'+video.title+'@'+video.description,'_self',false);
 	}
 }
+
+function expandMenu(){
+	$("aside").show();
+			
+	isHidden = false;
+			
+	//pause the video
+	$('#video').get(0).pause();
+			
+	//now dim the section, put it out of focus
+	$("section").css({'opacity':'0.10'});
+}
+
+function retractMenu(){
+	$("aside").hide();
+			
+	isHidden = true;
+			
+	//put the section back in focus
+	$("section").css({'opacity':'1'});
+			
+}
+
 
 $(document).ready(function(){
 	//lists of Video objects
@@ -65,26 +91,27 @@ $(document).ready(function(){
 				
 				//now the code to fill the aside with links
 				for(var i = 0; i < dev_videos.length; i++){
-					$("#dev_menu").append('<div id = "dev_link'+i+'"></div>')
+					$("#dev_menu").append('<div id = "dev_link'+i+'"></div>');
 					
-					$("#dev_link"+i).append('<h2>'+dev_videos[i].title+'</h2>');
-					$("#dev_link"+i).append('<p>'+dev_videos[i].description+'</p>');
+					$("#dev_link"+i).append('<div id = "title" class = "dev_title'+i+'"><h2>'+dev_videos[i].title+'</h2></div>');
+					
+					var height = $(".dev_title"+i).height();
+					var top = (height - 62)/2;
+					$(".dev_title"+i).append('<img id = "play" src="img/play.png" style = "top:-'+top+'">');
+					//<img id = "play" src="img/play.png">
+					
+					$("#dev_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
+					//$("#dev_link"+i).append('<>');	
 						
 						
 					$('#dev_link'+i).click(videoCallback('dev',dev_videos[i]));
-						
-					if(i%2==0){
-						$('#dev_link'+i).css({'background-color':'#146991'});
-					}
-					else{
-						$('#dev_link'+i).css({'background-color':'black'});
-					}
+					
 						
 					//now fix the formatting of the links
-					$('#dev_link'+i).css({'color':'white'});
+					//$('#dev_link'+i).css({'color':'white'});
 					$('#dev_link'+i).css({'margin':'auto'});
 					$('#dev_link'+i).css({'padding':'10px'});
-					$('#dev_link'+i).css({'-webkit-appearance':'button'});
+					//$('#dev_link'+i).css({'-webkit-appearance':'button'});
 						
 						
 				}
@@ -142,24 +169,27 @@ $(document).ready(function(){
 				for(var i = 0; i < quick_videos.length; i++){
 					$("#quick_menu").append('<div id = "quick_link'+i+'"></div>')
 					
-					$("#quick_link"+i).append('<h2>'+quick_videos[i].title+'</h2>');
-					$("#quick_link"+i).append('<p>'+quick_videos[i].description+'</p>');
+					$("#quick_link"+i).append('<div id = "title" class = "quick_title'+i+'"><h2>'+quick_videos[i].title+'</h2></div>');
+					
+					var height = $(".quick_title"+i).height();
+					var top = (height - 62)/2;
+					$(".quick_title"+i).append('<img id = "play" src="img/play.png" style = "top:-'+top+'">');
+					//<img id = "play" src="img/play.png">
+					
+					$("#quick_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
+					//$("#quick_link"+i).append('<>');	
+						
 						
 						
 					$('#quick_link'+i).click(videoCallback('quick',quick_videos[i]));
 						
-					if(i%2==0){
-						$('#quick_link'+i).css({'background-color':'#146991'});
-					}
-					else{
-						$('#quick_link'+i).css({'background-color':'black'});
-					}
+					
 						
 					//now fix the formatting of the links
-					$('#quick_link'+i).css({'color':'white'});
+					//$('#quick_link'+i).css({'color':'white'});
 					$('#quick_link'+i).css({'margin':'auto'});
 					$('#quick_link'+i).css({'padding':'10px'});
-					$('#quick_link'+i).css({'-webkit-appearance':'button'});
+					//$('#quick_link'+i).css({'-webkit-appearance':'button'});
 						
 						
 				}
@@ -170,5 +200,66 @@ $(document).ready(function(){
     });
 
 	
+	//now for the code to hide the sidebar
+	$("section").click(function(){
+		
+		
+		if(!isHidden){
+			
+			retractMenu();
+		}
+		
+	
+		
+	});
+	
+	//for the aside button
+	$('#aside_button').click(function(){
+		
+		
+		 if(isHidden){
+			
+			
+			
+			
+			expandMenu();
+			
+			
+		}
+		else{
+		
+			
+			retractMenu();
+		
+			
+		}
+		
+	
+		
+	});
+	
+	
+	
+	//now using the Hammer.js library
+	var hammertime = Hammer(document,{
+		dragMinDistance: 0,
+		dragMaxTouches: 2
+	});
+	
+    hammertime.on("dragright", function(event) {
+      if(isHidden){
+			
+			
+			expandMenu();
+		}
+    });
+	
+    hammertime.on("dragleft", function(event) {
+      if(!isHidden){
+			
+			
+			retractMenu();
+		}
+    });
 	
 });

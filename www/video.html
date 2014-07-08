@@ -31,11 +31,13 @@
 			s = s.split('?');
 			var video = s[1];
 			video = video.split('@');
-			var url = video[0];
-			var title = video[1].replace(/%20/gi," ");
+			
+			
+			var url = video[1];
+			var title = video[2].replace(/%20/gi," ");
 			
 			try {
-				var description = video[2].replace(/%20/gi," ");
+				var description = video[3].replace(/%20/gi," ");
 				
 				//remove the garbage
 				description = description.replace("%3Cp%3E","");
@@ -46,12 +48,21 @@
 			}
 			
 			
-			
-			
 			//now insert the video
-			$('#display').append('<center><video id = "video" autobuffer controls autoplay>' +
-			'<source src="'+url+'" type="video/mp4"></source>' +
-			'</video></center>');
+			//this will decide what thumbnail to display
+			var type = video[0];
+			if(type=='dev'){
+				$('#display').append('<center><video id = "video" autobuffer controls poster="img/dev.jpg">' +
+				'<source src="'+url+'" type="video/mp4"></source>' +
+				'</video></center>');
+			}
+			else{
+				$('#display').append('<center><video id = "video" autobuffer controls poster="img/quick.jpg">' +
+				'<source src="'+url+'" type="video/mp4"></source>' +
+				'</video></center>');
+			}
+			
+			
 			
 			//insert the title of the video
 			$('#display').append('<h1 id = "title" style = "text-align: center">'+title+'</h1>');

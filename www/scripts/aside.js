@@ -6,9 +6,9 @@ function Video(title, description, url){
 }
 
 //another callback for the video links
-function videoCallback(video){
+function videoCallback(type, video){
 	return function(){
-		window.open("video.html?"+video.url+'@'+video.title+'@'+video.description,'_self',false);
+		window.open("video.html?"+type+'@'+video.url+'@'+video.title+'@'+video.description,'_self',false);
 	}
 }
 
@@ -47,7 +47,7 @@ $(document).ready(function(){
 				$('#dev').append('<a href=""><div id = "dev'+ i +'"></div></a>');
 						
 				//now create a new click event for the new div
-				$('#dev').click(videoCallback(dev_videos[i]));
+				$('#dev').click(videoCallback('dev',dev_videos[i]));
 						
 				//add the rules to the new div we created
 				$('#dev'+i).css({
@@ -57,9 +57,7 @@ $(document).ready(function(){
 				});
 						
 				$('#dev'+i).append('<h2>'+dev_videos[i].title+'</h2>');
-				$('#dev'+i).append('<video id = "video">' +
-				'<source src="'+dev_videos[i].url+'" type="video/mp4"></source>' +
-				'</video>');
+				$('#dev'+i).append('<img src="img/dev.jpg" id = "video">');
 				$('#dev'+i).append('<p>'+dev_videos[i].description+'</p>');
 						
 				
@@ -73,7 +71,7 @@ $(document).ready(function(){
 					$("#dev_link"+i).append('<p>'+dev_videos[i].description+'</p>');
 						
 						
-					$('#dev_link'+i).click(videoCallback(dev_videos[i]));
+					$('#dev_link'+i).click(videoCallback('dev',dev_videos[i]));
 						
 					if(i%2==0){
 						$('#dev_link'+i).css({'background-color':'#146991'});
@@ -126,7 +124,7 @@ $(document).ready(function(){
 				$('#quick').append('<a href=""><div id = "quick'+ i +'"></div></a>');
 						
 				//now create a new click event for the new div
-				$('#quick').click(videoCallback(quick_videos[i]));
+				$('#quick').click(videoCallback('quick',quick_videos[i]));
 						
 				//add the rules to the new div we created
 				$('#quick'+i).css({
@@ -136,9 +134,7 @@ $(document).ready(function(){
 				});
 						
 				$('#quick'+i).append('<h2>'+quick_videos[i].title+'</h2>');
-				$('#quick'+i).append('<video id = "video">' +
-				'<source src="'+quick_videos[i].url+'" type="video/mp4"></source>' +
-				'</video>');
+				$('#quick'+i).append('<img src="img/quick.jpg" id = "video">');
 				$('#quick'+i).append('<p>'+quick_videos[i].description+'</p>');
 						
 					
@@ -150,7 +146,7 @@ $(document).ready(function(){
 					$("#quick_link"+i).append('<p>'+quick_videos[i].description+'</p>');
 						
 						
-					$('#quick_link'+i).click(videoCallback(quick_videos[i]));
+					$('#quick_link'+i).click(videoCallback('quick',quick_videos[i]));
 						
 					if(i%2==0){
 						$('#quick_link'+i).css({'background-color':'#146991'});

@@ -112,6 +112,7 @@ $(document).ready(function(){
 					$('#dev_link'+i).css({'margin':'auto'});
 					$('#dev_link'+i).css({'margin-top':'25px'});
 					$('#dev_link'+i).css({'margin-bottom':'25px'});
+					$('#dev_link'+i).css({'padding-bottom':'5px'});
 					$('#dev_link'+i).css({'width':'90%'});
 					//$('#dev_link'+i).css({'-webkit-appearance':'button'});
 						
@@ -191,6 +192,7 @@ $(document).ready(function(){
 					$('#quick_link'+i).css({'margin':'auto'});
 					$('#quick_link'+i).css({'margin-top':'25px'});
 					$('#quick_link'+i).css({'margin-bottom':'25px'});
+					$('#dev_link'+i).css({'padding-bottom':'5px'});
 					$('#quick_link'+i).css({'width':'90%'});
 					//$('#quick_link'+i).css({'-webkit-appearance':'button'});
 						

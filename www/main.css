@@ -11,6 +11,11 @@ article, aside, figure, footer, header, nav, section {
 	
 }
 
+@font-face {
+    font-family: bernard;
+    src: url('fonts/bernard.ttf');
+}
+
 a{
 	text-decoration: none;
 }
@@ -61,6 +66,7 @@ section{
 }
 
 #dev_latest, #quick_latest{
+	font-family: bernard;
 	background-color: #cccccc;
 }
 

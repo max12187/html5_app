@@ -1,4 +1,9 @@
 aside{
+
+	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");
+	background-size:auto;
+
+	
 	left: 0;
 	top: 50px;
 	min-width: 60%;
@@ -8,8 +13,11 @@ aside{
 	overflow-y: scroll;
 	z-index: 1;
 	box-shadow: 5px 2px 5px 2px #888888;
-	background-color: white;
+	
+	
 }
+
+
 
 aside h1{
 	font-size:2.5em;
@@ -35,3 +43,29 @@ aside h1{
 	position: relative;
 	
 }
+
+
+#dev_label, #quick_label{
+	
+	color: white;
+	margin:0;
+	background-color: #004669;
+	clear:both;
+	
+}
+
+#aside_menu{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#aside_label{
+	background-color:#cccccc;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+
+

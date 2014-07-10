@@ -94,14 +94,6 @@ section p{
 
 
 
-#dev_label, #quick_label{
-	font-size: 2.5em;
-	color : black;
-	margin: auto;
-	background-color: #7B8A96;
-	
-}
-
 
 
 #side_overlay{
@@ -116,12 +108,15 @@ section p{
 
 
 aside h2{
-	font-size: 1em;
+	font-size: 1.25em;
+	
 }
 
 aside p{
 	font-size: .8em;
+
 }
+
 
 section p{
 	font-size: .75em;

@@ -108,9 +108,10 @@ $(document).ready(function(){
 					
 						
 					//now fix the formatting of the links
-					//$('#dev_link'+i).css({'color':'white'});
+					$('#dev_link'+i).css({'background-color':'white'});
 					$('#dev_link'+i).css({'margin':'auto'});
-					$('#dev_link'+i).css({'padding':'10px'});
+					$('#dev_link'+i).css({'margin-top':'50px'});
+					$('#dev_link'+i).css({'margin-bottom':'50px'});
 					//$('#dev_link'+i).css({'-webkit-appearance':'button'});
 						
 						
@@ -186,9 +187,10 @@ $(document).ready(function(){
 					
 						
 					//now fix the formatting of the links
-					//$('#quick_link'+i).css({'color':'white'});
+					$('#quick_link'+i).css({'background-color':'white'});
 					$('#quick_link'+i).css({'margin':'auto'});
-					$('#quick_link'+i).css({'padding':'10px'});
+					$('#quick_link'+i).css({'margin-top':'50px'});
+					$('#quick_link'+i).css({'margin-bottom':'50px'});
 					//$('#quick_link'+i).css({'-webkit-appearance':'button'});
 						
 						
@@ -262,4 +264,16 @@ $(document).ready(function(){
 		}
     });
 	
+	//adding on click events for aside buttons
+	$('#quick_button').click(function(){
+		$('aside').animate({
+			scrollTop: $('#quick_label').offset().top - $('#quick_label').height()
+		}, 500);
+	});
+	
+	$('#dev_button').click(function(){
+		$('aside').animate({
+			scrollTop: $('#dev_label').offset().top - $('#dev_label').height()
+		}, 500);
+	});
 });

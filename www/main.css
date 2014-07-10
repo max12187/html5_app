@@ -52,14 +52,6 @@ section{
 	
 }
 
-#dev_label, #quick_label{
-	
-	color: white;
-	margin:0;
-	background-color: #004669;
-	
-}
-
 #dev, #quick{
 	padding-bottom: 1em;
 	width: 95%;

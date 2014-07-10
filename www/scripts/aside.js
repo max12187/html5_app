@@ -112,6 +112,7 @@ $(document).ready(function(){
 					$('#dev_link'+i).css({'margin':'auto'});
 					$('#dev_link'+i).css({'margin-top':'25px'});
 					$('#dev_link'+i).css({'margin-bottom':'25px'});
+					$('#dev_link'+i).css({'width':'90%'});
 					//$('#dev_link'+i).css({'-webkit-appearance':'button'});
 						
 						
@@ -179,18 +180,18 @@ $(document).ready(function(){
 					
 					$("#quick_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
 					//$("#quick_link"+i).append('<>');	
-						
-						
+					
 						
 					$('#quick_link'+i).click(videoCallback('quick',quick_videos[i]));
 						
-					
+					$('#quick_link'+i).css({'background-color':'white'});
 						
 					//now fix the formatting of the links
 					$('#quick_link'+i).css({'background-color':'white'});
 					$('#quick_link'+i).css({'margin':'auto'});
 					$('#quick_link'+i).css({'margin-top':'25px'});
 					$('#quick_link'+i).css({'margin-bottom':'25px'});
+					$('#quick_link'+i).css({'width':'90%'});
 					//$('#quick_link'+i).css({'-webkit-appearance':'button'});
 						
 						

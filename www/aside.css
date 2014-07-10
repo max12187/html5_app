@@ -23,8 +23,13 @@ aside h1{
 	font-size:2.5em;
 }
 
+aside p{
+	font-size: 1em;
+
+}
+
 #title{
-	width:90%; 
+	 
 	padding: 10px 10px; 
 	background-color:#cccccc; 
 	margin-left: auto; 

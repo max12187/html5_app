@@ -110,8 +110,8 @@ $(document).ready(function(){
 					//now fix the formatting of the links
 					$('#dev_link'+i).css({'background-color':'white'});
 					$('#dev_link'+i).css({'margin':'auto'});
-					$('#dev_link'+i).css({'margin-top':'50px'});
-					$('#dev_link'+i).css({'margin-bottom':'50px'});
+					$('#dev_link'+i).css({'margin-top':'25px'});
+					$('#dev_link'+i).css({'margin-bottom':'25px'});
 					//$('#dev_link'+i).css({'-webkit-appearance':'button'});
 						
 						
@@ -189,8 +189,8 @@ $(document).ready(function(){
 					//now fix the formatting of the links
 					$('#quick_link'+i).css({'background-color':'white'});
 					$('#quick_link'+i).css({'margin':'auto'});
-					$('#quick_link'+i).css({'margin-top':'50px'});
-					$('#quick_link'+i).css({'margin-bottom':'50px'});
+					$('#quick_link'+i).css({'margin-top':'25px'});
+					$('#quick_link'+i).css({'margin-bottom':'25px'});
 					//$('#quick_link'+i).css({'-webkit-appearance':'button'});
 						
 						

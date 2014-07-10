@@ -12,4 +12,10 @@
 	</author>
 	<icon src="img/icon.png" />
 	<gap:splash src="splash.png" />
+	
+	<gap:splash src="img/android/splash/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+	<gap:splash src="img/android/splash/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+	<gap:splash src="img/android/splash/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+	<gap:splash src="img/android/splash/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+	
 </widget>

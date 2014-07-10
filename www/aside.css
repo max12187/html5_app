@@ -1,3 +1,8 @@
+@font-face {
+    font-family: bernard;
+    src: url('fonts/bernard.ttf');
+}
+
 aside{
 
 	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");
@@ -29,17 +34,18 @@ aside p{
 }
 
 #title{
-	 
-	padding: 10px 10px; 
-	background-color:#cccccc; 
+	text-align:center;
+	background-color:#e1e1e1; 
 	margin-left: auto; 
 	margin-right: auto;
+	
 }
 
 #description{
 	width:90%; 
 	margin-left: auto; 
 	margin-right: auto;
+	
 }
 
 #play{
@@ -66,10 +72,15 @@ aside p{
 }
 
 #aside_label{
-	background-color:#cccccc;
+	font-family: bernard;
+	background-color:#e1e1e1;
 	padding: 0;
 	margin: 0;
 	margin-bottom: 10px;
+}
+
+.dev, .quick{
+	font-family: bernard;
 }
 
 

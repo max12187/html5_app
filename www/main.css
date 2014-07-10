@@ -2,8 +2,19 @@ article, aside, figure, footer, header, nav, section {
     display: block; 
 } 
 
+@font-face {
+    font-family: bernard;
+    src: url('fonts/bernard.ttf');
+}
+
+@font-face {
+    font-family: Futura_Medium;
+    src: url('fonts/FuturaCondensedMedium2.ttf');
+}
+
+
 *{
-	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	font-family: Arial;
 	text-shadow: none;
 	color: black;
 	
@@ -11,10 +22,6 @@ article, aside, figure, footer, header, nav, section {
 	
 }
 
-@font-face {
-    font-family: bernard;
-    src: url('fonts/bernard.ttf');
-}
 
 a{
 	text-decoration: none;

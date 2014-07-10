@@ -173,6 +173,7 @@ $(document).ready(function(){
 					$("#quick_menu").append('<div id = "quick_link'+i+'"></div>')
 					
 					$("#quick_link"+i).append('<div id = "title" class = "quick_title'+i+'"><h2>'+quick_videos[i].title+'</h2></div>');
+					//$("quick_title"+i).css({'padding-top':'5px','padding-bottom':'5px'});
 					
 					var height = $(".quick_title"+i).height();
 					var top = (height - 62)/2;
@@ -198,7 +199,9 @@ $(document).ready(function(){
 						
 						
 				}
-			
+				
+				//now add some blank lines to make the aside longer
+				$("#quick_menu").append('<br><br><br>');
 			
 		}
 		

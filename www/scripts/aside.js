@@ -180,7 +180,16 @@ $(document).ready(function(){
 					$(".quick_title"+i).append('<img id = "play" src="img/play.png" style = "top:-'+top+'">');
 					//<img id = "play" src="img/play.png">
 					
-					$("#quick_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
+					
+					try {
+						$("#quick_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
+					}
+					catch(err) {
+						console.log("No descriptions");
+						$("#quick_link"+i).append('<div id = "description"><p>'+'No description available'+'</p></div>');
+						location.reload();
+					}
+					
 					//$("#quick_link"+i).append('<>');	
 					
 						

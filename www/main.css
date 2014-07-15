@@ -115,7 +115,7 @@ a:active {color:white;}  /* selected link */
 /* for sign up overlay */
 #overlay {
 	width: 100%;
-	position:fixed;
+	position:absolute;
     top: 0;
     left: 0;
     background-color: white;

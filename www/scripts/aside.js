@@ -2,10 +2,11 @@
 var isHidden = true;
 
 //A class that represents each video
-function Video(title, description, url){
+function Video(title, description, url, duration){
 	this.title = title;
 	this.description = description;
 	this.url = url;
+	this.duration = duration;
 }
 
 //another callback for the video links
@@ -48,7 +49,7 @@ $(document).ready(function(){
 	//use googles epic API to get the RSS feed
 	var feed = new google.feeds.Feed("http://devvideopodcast.learntoprogram.tv/?feed=podcast");
 	
-	feed.setNumEntries(20);
+	feed.setNumEntries(100);
 	feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
 	feed.load(function(result) {
 		if (!result.error) {
@@ -57,11 +58,15 @@ $(document).ready(function(){
 				
 				for (var i = 0; i < result.feed.entries.length; i++) {
 					var entry = result.feed.entries[i];
+					
 					var video_url = entry.xmlNode.getElementsByTagName('enclosure')[0].getAttribute("url");
+					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
 					
 	
-					var video = new Video(entry.title, entry.content, video_url);
+					var video = new Video(entry.title, entry.content, video_url, durration);
 					dev_videos.push(video);
+					
+					
 				}
 				
 				
@@ -101,7 +106,18 @@ $(document).ready(function(){
 					//<img id = "play" src="img/play.png">
 					
 					$("#dev_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
-					//$("#dev_link"+i).append('<>');	
+					
+					
+					//now add the episode number and running time
+					if(i+1 < 10){ //add a zero to the front if it is a single digit
+						$("#dev_link"+i).append('<p id = "episode_number">Episode '+0+(i+1)+'<p>');
+					}
+					else{
+						$("#dev_link"+i).append('<p id = "episode_number">Episode '+(i+1)+'<p>');
+					}
+					//get running time
+					$("#dev_link"+i).append('<p id = "running_time">Running Time: '+dev_videos[i].duration+'<p>');
+					
 						
 						
 					$('#dev_link'+i).click(videoCallback('dev',dev_videos[i]));
@@ -111,9 +127,10 @@ $(document).ready(function(){
 					$('#dev_link'+i).css({'background-color':'white'});
 					$('#dev_link'+i).css({'margin':'auto'});
 					$('#dev_link'+i).css({'margin-top':'25px'});
-					$('#dev_link'+i).css({'margin-bottom':'25px'});
+					$('#dev_link'+i).css({'margin-bottom':'4em'});
 					$('#dev_link'+i).css({'padding-bottom':'5px'});
 					$('#dev_link'+i).css({'width':'90%'});
+					$('#dev_link'+i).css({'clear':'both'});
 					//$('#dev_link'+i).css({'-webkit-appearance':'button'});
 						
 						
@@ -131,7 +148,7 @@ $(document).ready(function(){
 	//doing the same thing again for the quickbytes feed
 	var feed = new google.feeds.Feed("http://quickbytespodcast.learntoprogram.tv/?feed=podcast");
 	
-	feed.setNumEntries(20);
+	feed.setNumEntries(100);
 	feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
 	feed.load(function(result) {
 		if (!result.error) {
@@ -139,12 +156,15 @@ $(document).ready(function(){
 				
 				for (var i = 0; i < result.feed.entries.length; i++) {
 					var entry = result.feed.entries[i];
+					
 					var video_url = entry.xmlNode.getElementsByTagName('enclosure')[0].getAttribute("url");
+					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
 					
-					
-					
-					var video = new Video(entry.title, entry.content, video_url);
+	
+					var video = new Video(entry.title, entry.content, video_url, durration);
 					quick_videos.push(video);
+					
+					
 				}
 				
 				//display the latest in quickBytes
@@ -185,12 +205,19 @@ $(document).ready(function(){
 						$("#quick_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
 					}
 					catch(err) {
-						console.log("No descriptions");
-						$("#quick_link"+i).append('<div id = "description"><p>'+'No description available'+'</p></div>');
+						//keep trying until it works
 						location.reload();
 					}
 					
-					//$("#quick_link"+i).append('<>');	
+					//now add the episode number and running time
+					if(i+1 < 10){ //add a zero to the front if it is a single digit
+						$("#quick_link"+i).append('<p id = "episode_number">Episode '+0+(i+1)+'<p>');
+					}
+					else{
+						$("#quick_link"+i).append('<p id = "episode_number">Episode '+(i+1)+'<p>');
+					}
+					//get running time
+					$("#quick_link"+i).append('<p id = "running_time">Running Time: '+dev_videos[i].duration+'<p>');
 					
 						
 					$('#quick_link'+i).click(videoCallback('quick',quick_videos[i]));
@@ -201,9 +228,10 @@ $(document).ready(function(){
 					$('#quick_link'+i).css({'background-color':'white'});
 					$('#quick_link'+i).css({'margin':'auto'});
 					$('#quick_link'+i).css({'margin-top':'25px'});
-					$('#quick_link'+i).css({'margin-bottom':'25px'});
-					$('#dev_link'+i).css({'padding-bottom':'5px'});
+					$('#quick_link'+i).css({'margin-bottom':'4em'});
+					$('#quick_link'+i).css({'padding-bottom':'5px'});
 					$('#quick_link'+i).css({'width':'90%'});
+					$('#quick_link'+i).css({'clear':'both'});
 					//$('#quick_link'+i).css({'-webkit-appearance':'button'});
 						
 						

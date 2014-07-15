@@ -29,9 +29,11 @@ a{
 
 header{
 	background-color:#004669;
+	height: 50px;
 	width:100%;
 	position: fixed;
 	z-index: 1;
+	padding-bottom: .5em;
 	
 	
 }
@@ -54,18 +56,20 @@ section{
 
 
 #logo{
+	height: 50px;
+	margin-left: 1em;
 	
-	position: relative;
-	left: 10px;
 }
+
 
 
 #aside_button{
-	height: 75px;
+	height: 50px;
+	
 }
 
 #back_button{
-	height: 75px;
+	height: 50px;
 }
 
 #dev, #quick{

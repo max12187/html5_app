@@ -36,12 +36,6 @@ header{
 	
 }
 
-#logo{
-	
-	position: relative;
-	left: 10px;
-}
-
 section{
 	
 	width: 100%;
@@ -59,9 +53,19 @@ section{
 }
 
 
-#aside_button{
-
+#logo{
 	
+	position: relative;
+	left: 10px;
+}
+
+
+#aside_button{
+	height: 75px;
+}
+
+#back_button{
+	height: 75px;
 }
 
 #dev, #quick{
@@ -81,12 +85,6 @@ section{
 	background-color: #7B8A96;
 	font-size: 1em;
 }
-
-aside h2{
-	font-size: 1.25em;
-	
-}
-
 
 
 section h1{

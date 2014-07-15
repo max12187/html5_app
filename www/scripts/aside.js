@@ -131,7 +131,9 @@ $(document).ready(function(){
 					$('#dev_link'+i).css({'padding-bottom':'5px'});
 					$('#dev_link'+i).css({'width':'90%'});
 					$('#dev_link'+i).css({'clear':'both'});
-					//$('#dev_link'+i).css({'-webkit-appearance':'button'});
+					$('#dev_link'+i).css({'border-style':'solid'});
+					$('#dev_link'+i).css({'-webkit-appearance':'button'});
+					
 						
 						
 				}
@@ -232,7 +234,8 @@ $(document).ready(function(){
 					$('#quick_link'+i).css({'padding-bottom':'5px'});
 					$('#quick_link'+i).css({'width':'90%'});
 					$('#quick_link'+i).css({'clear':'both'});
-					//$('#quick_link'+i).css({'-webkit-appearance':'button'});
+					$('#quick_link'+i).css({'border-style':'solid'});
+					$('#quick_link'+i).css({'-webkit-appearance':'button'});
 						
 						
 				}

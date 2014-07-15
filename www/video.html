@@ -72,6 +72,7 @@
 			$('#display').append('<h2 style = "text-align: center">'+description+'</h2>');
 			
 			//now lets move the home icon to the right
+			$('#back_button').css({'height':'75px'});
 			var width = $('body').width() - 50;
 			$('#back_button').css({'left':width});
 		
@@ -92,7 +93,8 @@
 <body>
 	
 	<header>
-		  <img id = "aside_button" src = "img/threelines.png">
+		  <img id = "aside_button" src = "img/threelines.png" style="float:left;">
+		  <img id = "logo" src = "img/logo.png" style="float:left;">
 		
 	</header>
 	

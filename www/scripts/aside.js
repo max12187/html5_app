@@ -148,7 +148,7 @@ $(document).ready(function(){
     });
 	
 	//doing the same thing again for the quickbytes feed
-	var feed = new google.feeds.Feed("http://quickbytespodcast.learntoprogram.tv/?feed=podcast");
+	feed = new google.feeds.Feed("http://quickbytespodcast.learntoprogram.tv/?feed=podcast");
 	
 	feed.setNumEntries(100);
 	feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
@@ -165,6 +165,8 @@ $(document).ready(function(){
 	
 					var video = new Video(entry.title, entry.content, video_url, durration);
 					quick_videos.push(video);
+					
+					
 					
 					
 				}
@@ -219,7 +221,7 @@ $(document).ready(function(){
 						$("#quick_link"+i).append('<p id = "episode_number">Episode '+(i+1)+'<p>');
 					}
 					//get running time
-					$("#quick_link"+i).append('<p id = "running_time">Running Time: '+dev_videos[i].duration+'<p>');
+					$("#quick_link"+i).append('<p id = "running_time">Running Time: '+quick_videos[i].duration+'<p>');
 					
 						
 					$('#quick_link'+i).click(videoCallback('quick',quick_videos[i]));
@@ -313,13 +315,13 @@ $(document).ready(function(){
 	//adding on click events for aside buttons
 	$('#quick_button').click(function(){
 		$('aside').animate({
-			scrollTop: $('#quick_label').offset().top - $('#quick_label').height()
+			scrollTop: $('#quick_label').offset().top - 50
 		}, 500);
 	});
 	
 	$('#dev_button').click(function(){
 		$('aside').animate({
-			scrollTop: $('#dev_label').offset().top - $('#dev_label').height()
+			scrollTop: $('#dev_label').offset().top - 50
 		}, 500);
 	});
 });

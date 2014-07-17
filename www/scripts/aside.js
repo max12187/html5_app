@@ -290,7 +290,7 @@ $(document).ready(function(){
 	
 	//now using the Hammer.js library
 	var hammertime = Hammer(document,{
-		dragMinDistance: 10,
+		dragMinDistance: 50,
 		dragMaxTouches: 2
 	});
 	

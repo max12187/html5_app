@@ -31,6 +31,9 @@ body{
 #logo{
 	height: 50px;
 	margin-left: 1em;
+	position: fixed;
+	float:left;
+	left: 50px;
 }
 
 #display{
@@ -42,15 +45,17 @@ body{
 #back_button{
 	height: 50px;
 	position: fixed;
-	top: 0;
+	
 	left: 300px;
 	z-index: 100;
 }
 
 
 #aside_button{
+	position: fixed;
 	height: 50px;
-	top: 0;
+	float:left;
+	
 	
 	
 }

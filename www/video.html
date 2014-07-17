@@ -72,9 +72,12 @@
 			$('#display').append('<h2 style = "text-align: center">'+description+'</h2>');
 			
 			//now lets move the home icon to the right
-			$('#back_button').css({'height':'50px'});
+			$('#back_button').css({'height':'50px','padding':'0'});
 			var width = $('body').width() - 50;
-			$('#back_button').css({'left':width});
+			var height = $('header').height() - 50;
+			
+			$('#back_button').css({'left':width,'top':8});
+			
 		
 		});
 		
@@ -93,8 +96,8 @@
 <body>
 	
 	<header>
-		  <img id = "aside_button" src = "img/threelines.png" style="float:left;">
-		  <img id = "logo" src = "img/logo.png" style="float:left; height:50px">
+		  <img id = "aside_button" src = "img/threelines.png">
+		  <img id = "logo" src = "img/logo.png">
 		
 	</header>
 	

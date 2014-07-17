@@ -204,7 +204,7 @@ $(document).ready(function(){
 					
 					
 					try {
-						$("#quick_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
+						$("#quick_link"+i).append('<div id = "description"><p>'+quick_videos[i].description+'</p></div>');
 					}
 					catch(err) {
 						//keep trying until it works

@@ -27,7 +27,13 @@
 	<!-- library for RSS feed -->
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
-		google.load("feeds", "1");
+		try{
+			google.load("feeds", "1");
+		}
+		catch(err) {
+			console.log("stuff");
+			alert('UNABLE TO ACCESS THE INTERNET... TRY AGAIN SOON');
+		}
 	</script>
 	
 	<script>

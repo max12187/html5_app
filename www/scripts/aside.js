@@ -15,15 +15,17 @@ function videoCallback(type, video){
 }
 
 
+//lists of Video objects
+var dev_videos = [];
+var quick_videos = [];
 
-
-$(document).ready(function(){
-	//lists of Video objects
-	var dev_videos = [];
-	var quick_videos = [];
+var devPos = 0;
+var quickPos = 0;
 	
-	var devPos = 0;
-	var quickPos = 0;
+$(document).ready(function(){
+	
+	
+	
 	
 	//0 for dev, 1 for quick
 	var activeView = 0;
@@ -106,64 +108,22 @@ $(document).ready(function(){
 			
 						
 					
-				//now the code to fill the aside with links
+					//now the code to fill the aside with links
 				for(var i = 0; i < quick_videos.length; i++){
-					$("#quick_menu").append('<div id = "quick_link'+i+'"></div>')
-					
-					$("#quick_link"+i).append('<div id = "title" class = "quick_title'+i+'"><h2>'+quick_videos[i].title+'</h2></div>');
-					//$("quick_title"+i).css({'padding-top':'5px','padding-bottom':'5px'});
-					
-					var height = $(".quick_title"+i).height();
-					var top = (height - 62)/2;
-					$(".quick_title"+i).append('<img id = "play" src="img/play.png" style = "top:-'+top+'">');
-					//<img id = "play" src="img/play.png">
 					
 					
-					try {
-						$("#quick_link"+i).append('<div id = "description"><p>'+quick_videos[i].description+'</p></div>');
-					}
-					catch(err) {
-						//keep trying until it works
-						location.reload();
-					}
-					
-					//now add the episode number and running time
-					if(i+1 < 10){ //add a zero to the front if it is a single digit
-						$("#quick_link"+i).append('<p id = "episode_number">Episode '+0+(i+1)+'<p>');
-					}
-					else{
-						$("#quick_link"+i).append('<p id = "episode_number">Episode '+(i+1)+'<p>');
-					}
-					//get running time
-					$("#quick_link"+i).append('<p id = "running_time">Running Time: '+quick_videos[i].duration+'<p>');
-					
-						
-					$('#quick_link'+i).click(videoCallback('quick',quick_videos[i]));
-						
-					$('#quick_link'+i).css({'background-color':'white'});
-						
-					//now fix the formatting of the links
-					$('#quick_link'+i).css({'background-color':'white'});
-					$('#quick_link'+i).css({'margin':'auto'});
-					$('#quick_link'+i).css({'margin-top':'25px'});
-					$('#quick_link'+i).css({'margin-bottom':'4em'});
-					$('#quick_link'+i).css({'padding-bottom':'5px'});
-					$('#quick_link'+i).css({'width':'90%'});
-					$('#quick_link'+i).css({'clear':'both'});
-					$('#quick_link'+i).css({'border-style':'solid'});
-					$('#quick_link'+i).css({'-webkit-appearance':'button'});
-						
+					$('#quick_list').append('<li id = "quick'+i+'"><img id = "item" src = "img/quick.jpg" ></li>');
+					//console.log("log");
+					quick_videos[i].li = $('#quick'+i)
 						
 				}
-				
-				//now add some blank lines to make the aside longer
-				$("#quick_menu").append('<br><br><br>');
+					
 			
 		}
 		
 		//select the active elements
 		selectSeries(activeView);
-		selectItem(dev_videos[0].li,dev_videos[0].li,$('#dev_list'));
+		selectItem(dev_videos[0].li,dev_videos[0].li,$('#dev_list'), 0);
 		
 		
     });
@@ -172,21 +132,21 @@ $(document).ready(function(){
 		if (e.keyCode == 37) { 
 			//left
 			
-			//dev_videos[3].li.addClass("selected");
-			
-			
-			//alert(dev_videos[3].li.position().left);
-			
-			//dev
 			if(activeView==0){
 				
+				if(inBounds(devPos-1,dev_videos.lenght)){
 				
-				selectItem(dev_videos[devPos].li , dev_videos[devPos-1].li , $('#dev_list'));
-				devPos-=1;
-				
+					selectItem(dev_videos[devPos].li , dev_videos[devPos-1].li , $('#dev_list'), -1);
+					devPos-=1;
+				}
 			}
 			else{
-			
+				
+				if(inBounds(quickPos-1,quick_videos.lenght)){
+				
+					selectItem(quick_videos[quickPos].li , quick_videos[quickPos-1].li , $('#quick_list'), -1);
+					quickPos-=1;
+				}
 			
 			}
 			
@@ -196,13 +156,22 @@ $(document).ready(function(){
 			//right
 			
 			if(activeView==0){
+			
+				if(inBounds(devPos+1,dev_videos.lenght)){
 				
-				selectItem(dev_videos[devPos].li , dev_videos[devPos+1].li , $('#dev_list'));
-				devPos+=1;
-				
+					selectItem(dev_videos[devPos].li , dev_videos[devPos+1].li , $('#dev_list'), 1);
+					devPos+=1;
+					
+				}
 			}
 			else{
-			
+				
+				if(inBounds(quickPos+1,quick_videos.lenght)){
+				
+					selectItem(quick_videos[quickPos].li , quick_videos[quickPos+1].li , $('#quick_list'), 1);
+					quickPos+=1;
+					
+				}
 			
 			}
 			return false;
@@ -226,10 +195,10 @@ $(document).ready(function(){
 	
 });
 
-function scroll(li, parent){
+function scroll(li, parent, direction){
 	parent.animate({
-        scrollLeft: li.position().left
-	}, 500);
+        scrollLeft: parent.scrollLeft() + (li.width()*direction)
+	}, 250);
 }
 
 function selectSeries(activeView){
@@ -237,21 +206,33 @@ function selectSeries(activeView){
 		//remove for quick add for dev
 		$('#quick').removeClass('series_selected');
 		$('#dev').addClass('series_selected');
+		
+		//deselect the active for quick and select the active for dev
+		quick_videos[quickPos].li.removeClass('selected');
+		dev_videos[devPos].li.addClass('selected');
 	}
 	else{
 		//remove for quick add for dev
 		$('#dev').removeClass('series_selected');
 		$('#quick').addClass('series_selected');
+		
+		dev_videos[devPos].li.removeClass('selected');
+		quick_videos[quickPos].li.addClass('selected');
+		
 	
 	}
 }
 
-function selectItem(oldItem, newItem, parent){
-	oldItem.removeClass('selected');
-	newItem.addClass('selected');
+function selectItem(oldItem, newItem, parent, direction){
 	
-	scroll(newItem , parent);
+		oldItem.removeClass('selected');
+		newItem.addClass('selected');
+	
+		scroll(newItem , parent, direction);
+}
 
+function inBounds(i,size){
+	return !(i < 0 || i > size)
 }
 
 

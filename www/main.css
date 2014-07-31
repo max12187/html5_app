@@ -94,6 +94,14 @@ li {
 	display: inline; 
 }
 
+.selected{
+	opacity:.5;
+}
+
+.series_selected{
+	border-style: solid;
+}
+
 section h1{
 	font-size: 2em;
 }

@@ -1,11 +1,10 @@
-
-
 //A class that represents each video
 function Video(title, description, url, duration){
 	this.title = title;
 	this.description = description;
 	this.url = url;
 	this.duration = duration;
+	this.li = null;
 }
 
 //another callback for the video links
@@ -22,6 +21,12 @@ $(document).ready(function(){
 	//lists of Video objects
 	var dev_videos = [];
 	var quick_videos = [];
+	
+	var devPos = 0;
+	var quickPos = 0;
+	
+	//0 for dev, 1 for quick
+	var activeView = 0;
 	
 	
 
@@ -59,13 +64,15 @@ $(document).ready(function(){
 				for(var i = 0; i < dev_videos.length; i++){
 					
 					
-						
+					$('#dev_list').append('<li id = "dev'+i+'"><img id = "item" src = "img/dev.jpg" ></li>');
+					//console.log("log");
+					dev_videos[i].li = $('#dev'+i)
 						
 				}
 					
 					
 				
-					
+				//console.log(dev_videos[3].li);
 			
 			
 		}
@@ -154,19 +161,69 @@ $(document).ready(function(){
 			
 		}
 		
+		//select the active elements
+		select(activeView);
+		
+		
+		
     });
 
 	$(document).keydown(function(e){
 		if (e.keyCode == 37) { 
-			alert( "left pressed" );
+			//left
+			
+			dev_videos[3].li.addClass("selected");
+			
+			
+			//alert(dev_videos[3].li.position().left);
+			
+			scroll(dev_videos[3].li, $('#dev_list'));
+			
 			return false;
 		}
 		else if (e.keyCode == 39){
-			alert( "right pressed" );
+			//right
 			return false;
 		}
+		else if (e.keyCode == 38){
+			//up
+			activeView = 0;
+			select(activeView);
+			return false;
+		}
+		else if (e.keyCode == 40){
+			//down
+			activeView = 1;
+			select(activeView);
+			return false;
+		}
+		
+		
+		
 	});
 	
 });
+
+function scroll(li, parent){
+	parent.animate({
+        scrollLeft: li.position().left
+	}, 500);
+}
+
+function select(activeView){
+	if (activeView == 0){
+		//remove for quick add for dev
+		$('#quick').removeClass('series_selected');
+		$('#dev').addClass('series_selected');
+	}
+	else{
+		//remove for quick add for dev
+		$('#dev').removeClass('series_selected');
+		$('#quick').addClass('series_selected');
+	
+	}
+}
+
+
 
 

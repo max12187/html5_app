@@ -138,6 +138,10 @@ $(document).ready(function(){
 				
 					selectItem(dev_videos[devPos].li , dev_videos[devPos-1].li , $('#dev_list'), -1);
 					devPos-=1;
+					
+					
+					//display the name
+					$('#dev_title').text(dev_videos[devPos].title);
 				}
 			}
 			else{
@@ -146,6 +150,8 @@ $(document).ready(function(){
 				
 					selectItem(quick_videos[quickPos].li , quick_videos[quickPos-1].li , $('#quick_list'), -1);
 					quickPos-=1;
+					
+					$('#quick_title').text(quick_videos[quickPos].title);
 				}
 			
 			}
@@ -162,6 +168,8 @@ $(document).ready(function(){
 					selectItem(dev_videos[devPos].li , dev_videos[devPos+1].li , $('#dev_list'), 1);
 					devPos+=1;
 					
+					//display the name
+					$('#dev_title').text(dev_videos[devPos].title);
 				}
 			}
 			else{
@@ -170,6 +178,8 @@ $(document).ready(function(){
 				
 					selectItem(quick_videos[quickPos].li , quick_videos[quickPos+1].li , $('#quick_list'), 1);
 					quickPos+=1;
+					
+					$('#quick_title').text(quick_videos[quickPos].title);
 					
 				}
 			
@@ -194,7 +204,12 @@ $(document).ready(function(){
 	});
 	
 	$(window).keypress(function(e) {
-		alert(e.which);
+		//alert(e.which);
+		
+		//enter
+		if(e.which == 13){
+			alert('load video');
+		}
        //do stuff with "key" here...
    });
 	
@@ -215,6 +230,8 @@ function selectSeries(activeView){
 		//deselect the active for quick and select the active for dev
 		quick_videos[quickPos].li.removeClass('selected');
 		dev_videos[devPos].li.addClass('selected');
+		
+		$('#dev_title').text(dev_videos[devPos].title);
 	}
 	else{
 		//remove for quick add for dev
@@ -224,6 +241,7 @@ function selectSeries(activeView){
 		dev_videos[devPos].li.removeClass('selected');
 		quick_videos[quickPos].li.addClass('selected');
 		
+		$('#quick_title').text(quick_videos[quickPos].title);
 	
 	}
 }

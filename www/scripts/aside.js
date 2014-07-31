@@ -193,6 +193,11 @@ $(document).ready(function(){
 		
 	});
 	
+	$(window).keypress(function(e) {
+		alert(e.which);
+       //do stuff with "key" here...
+   });
+	
 });
 
 function scroll(li, parent, direction){

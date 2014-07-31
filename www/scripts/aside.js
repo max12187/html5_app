@@ -162,8 +162,8 @@ $(document).ready(function(){
 		}
 		
 		//select the active elements
-		select(activeView);
-		
+		selectSeries(activeView);
+		selectItem(dev_videos[0].li,dev_videos[0].li,$('#dev_list'));
 		
 		
     });
@@ -172,29 +172,51 @@ $(document).ready(function(){
 		if (e.keyCode == 37) { 
 			//left
 			
-			dev_videos[3].li.addClass("selected");
+			//dev_videos[3].li.addClass("selected");
 			
 			
 			//alert(dev_videos[3].li.position().left);
 			
-			scroll(dev_videos[3].li, $('#dev_list'));
+			//dev
+			if(activeView==0){
+				
+				
+				selectItem(dev_videos[devPos].li , dev_videos[devPos-1].li , $('#dev_list'));
+				devPos-=1;
+				
+			}
+			else{
+			
+			
+			}
 			
 			return false;
 		}
 		else if (e.keyCode == 39){
 			//right
+			
+			if(activeView==0){
+				
+				selectItem(dev_videos[devPos].li , dev_videos[devPos+1].li , $('#dev_list'));
+				devPos+=1;
+				
+			}
+			else{
+			
+			
+			}
 			return false;
 		}
 		else if (e.keyCode == 38){
 			//up
 			activeView = 0;
-			select(activeView);
+			selectSeries(activeView);
 			return false;
 		}
 		else if (e.keyCode == 40){
 			//down
 			activeView = 1;
-			select(activeView);
+			selectSeries(activeView);
 			return false;
 		}
 		
@@ -210,7 +232,7 @@ function scroll(li, parent){
 	}, 500);
 }
 
-function select(activeView){
+function selectSeries(activeView){
 	if (activeView == 0){
 		//remove for quick add for dev
 		$('#quick').removeClass('series_selected');
@@ -222,6 +244,14 @@ function select(activeView){
 		$('#quick').addClass('series_selected');
 	
 	}
+}
+
+function selectItem(oldItem, newItem, parent){
+	oldItem.removeClass('selected');
+	newItem.addClass('selected');
+	
+	scroll(newItem , parent);
+
 }
 
 

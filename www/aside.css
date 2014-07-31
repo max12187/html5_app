@@ -7,24 +7,7 @@
     src: url('fonts/bernard.ttf');
 }
 
-aside{
 
-	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");
-	background-size:auto;
-
-	
-	left: 0;
-	top: 50px;
-	min-width: 60%;
-	width: 60%;
-	height: 100%;
-	position: fixed;
-	overflow-y: scroll;
-	z-index: 1;
-	box-shadow: 5px 2px 5px 2px #888888;
-	
-	
-}
 
 
 

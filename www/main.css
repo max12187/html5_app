@@ -63,33 +63,36 @@ section{
 
 
 
-#aside_button{
-	height: 50px;
-	
-}
-
-#back_button{
-	height: 50px;
-}
 
 #dev, #quick{
 	padding-bottom: 1em;
 	width: 95%;
 	margin: auto;
-	-webkit-appearance:button;
 	box-shadow: 5px 5px 3px #888888;
+	background-color: white;
 }
 
-#dev_latest, #quick_latest{
-	font-family: bernard;
-	background-color: #cccccc;
-}
 
 #menu{
 	background-color: #7B8A96;
 	font-size: 1em;
 }
 
+#item{
+	margin-right: 1em;
+	width : 50%;
+}
+
+ul {
+
+    list-style-type:none;
+    white-space:nowrap;
+    overflow-x:auto;
+}
+
+li { 
+	display: inline; 
+}
 
 section h1{
 	font-size: 2em;
@@ -113,14 +116,4 @@ a:visited {color:black;} /* visited link */
 a:hover {color:white;}   /* mouse over link */
 a:active {color:white;}  /* selected link */
 
-
-/* for sign up overlay */
-#overlay {
-	width: 100%;
-	position:absolute;
-    top: 0;
-    left: 0;
-    background-color: white;
-    z-index: 1000;
-}
 

@@ -71,68 +71,14 @@ $(document).ready(function(){
 				
 				
 				
-				//display the latest in dev
-				var i = 0;
-						
-				//create a new div container for the video
-				$('#dev').append('<a href=""><div id = "dev'+ i +'"></div></a>');
-						
-				//now create a new click event for the new div
-				$('#dev').click(videoCallback('dev',dev_videos[i]));
-						
-				//add the rules to the new div we created
-				$('#dev'+i).css({
-					'width' : '100%',
-					'text-align' : 'center',
-					'margin' : 'auto'
-				});
-						
-				$('#dev'+i).append('<h2>'+dev_videos[i].title+'</h2>');
-				$('#dev'+i).append('<img src="img/dev.jpg" id = "video">');
-				$('#dev'+i).append('<p>'+dev_videos[i].description+'</p>');
+				
 						
 				
 				
 				
 				//now the code to fill the aside with links
 				for(var i = 0; i < dev_videos.length; i++){
-					$("#dev_menu").append('<div id = "dev_link'+i+'"></div>');
 					
-					$("#dev_link"+i).append('<div id = "title" class = "dev_title'+i+'"><h2>'+dev_videos[i].title+'</h2></div>');
-					
-					var height = $(".dev_title"+i).height();
-					var top = (height - 62)/2;
-					$(".dev_title"+i).append('<img id = "play" src="img/play.png" style = "top:-'+top+'">');
-					//<img id = "play" src="img/play.png">
-					
-					$("#dev_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
-					
-					
-					//now add the episode number and running time
-					if(i+1 < 10){ //add a zero to the front if it is a single digit
-						$("#dev_link"+i).append('<p id = "episode_number">Episode '+0+(i+1)+'<p>');
-					}
-					else{
-						$("#dev_link"+i).append('<p id = "episode_number">Episode '+(i+1)+'<p>');
-					}
-					//get running time
-					$("#dev_link"+i).append('<p id = "running_time">Running Time: '+dev_videos[i].duration+'<p>');
-					
-						
-						
-					$('#dev_link'+i).click(videoCallback('dev',dev_videos[i]));
-					
-						
-					//now fix the formatting of the links
-					$('#dev_link'+i).css({'background-color':'white'});
-					$('#dev_link'+i).css({'margin':'auto'});
-					$('#dev_link'+i).css({'margin-top':'25px'});
-					$('#dev_link'+i).css({'margin-bottom':'4em'});
-					$('#dev_link'+i).css({'padding-bottom':'5px'});
-					$('#dev_link'+i).css({'width':'90%'});
-					$('#dev_link'+i).css({'clear':'both'});
-					$('#dev_link'+i).css({'border-style':'solid'});
-					$('#dev_link'+i).css({'-webkit-appearance':'button'});
 					
 						
 						
@@ -171,25 +117,7 @@ $(document).ready(function(){
 					
 				}
 				
-				//display the latest in quickBytes
-				var i = 0;
-				
-				//create a new div container for the video
-				$('#quick').append('<a href=""><div id = "quick'+ i +'"></div></a>');
-						
-				//now create a new click event for the new div
-				$('#quick').click(videoCallback('quick',quick_videos[i]));
-						
-				//add the rules to the new div we created
-				$('#quick'+i).css({
-					'width' : '100%',
-					'text-align' : 'center',
-					'margin' : 'auto'
-				});
-						
-				$('#quick'+i).append('<h2>'+quick_videos[i].title+'</h2>');
-				$('#quick'+i).append('<img src="img/quick.jpg" id = "video">');
-				$('#quick'+i).append('<p>'+quick_videos[i].description+'</p>');
+			
 						
 					
 				//now the code to fill the aside with links
@@ -250,78 +178,5 @@ $(document).ready(function(){
     });
 
 	
-	//now for the code to hide the sidebar
-	$("section").click(function(){
-		
-		
-		if(!isHidden){
-			
-			retractMenu();
-		}
-		
 	
-		
-	});
-	
-	//for the aside button
-	$('#aside_button').click(function(){
-		
-		
-		 if(isHidden){
-			
-			
-			
-			
-			expandMenu();
-			
-			
-		}
-		else{
-		
-			
-			retractMenu();
-		
-			
-		}
-		
-	
-		
-	});
-	
-	
-	
-	//now using the Hammer.js library
-	var hammertime = Hammer(document,{
-		dragMinDistance: 20,
-		dragMaxTouches: 2
-	});
-	
-    hammertime.on("dragright", function(event) {
-      if(isHidden){
-			
-			
-			expandMenu();
-		}
-    });
-	
-    hammertime.on("dragleft", function(event) {
-      if(!isHidden){
-			
-			
-			retractMenu();
-		}
-    });
-	
-	//adding on click events for aside buttons
-	$('#quick_button').click(function(){
-		$('aside').animate({
-			scrollTop: $('#quick_label').offset().top - 50
-		}, 500);
-	});
-	
-	$('#dev_button').click(function(){
-		$('aside').animate({
-			scrollTop: $('#dev_label').offset().top - 50
-		}, 500);
-	});
 });

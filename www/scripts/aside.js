@@ -1,5 +1,4 @@
-//flag for the sidebar hiding function
-var isHidden = true;
+
 
 //A class that represents each video
 function Video(title, description, url, duration){
@@ -16,27 +15,7 @@ function videoCallback(type, video){
 	}
 }
 
-function expandMenu(){
-	$("aside").show();
-			
-	isHidden = false;
-			
-	//pause the video
-	$('#video').get(0).pause();
-			
-	//now dim the section, put it out of focus
-	$("section").css({'opacity':'0.10'});
-}
 
-function retractMenu(){
-	$("aside").hide();
-			
-	isHidden = true;
-			
-	//put the section back in focus
-	$("section").css({'opacity':'1'});
-			
-}
 
 
 $(document).ready(function(){
@@ -177,6 +156,17 @@ $(document).ready(function(){
 		
     });
 
-	
+	$(document).keydown(function(e){
+		if (e.keyCode == 37) { 
+			alert( "left pressed" );
+			return false;
+		}
+		else if (e.keyCode == 39){
+			alert( "right pressed" );
+			return false;
+		}
+	});
 	
 });
+
+

@@ -70,6 +70,7 @@ section{
 	margin: auto;
 	box-shadow: 5px 5px 3px #888888;
 	background-color: white;
+	
 }
 
 
@@ -99,12 +100,14 @@ li {
 	display: inline; 
 }
 
-.selected{
-	opacity:.5;
+.selected img{
+	border-style: solid;
+	border-width: 2px;
+	
 }
 
 .series_selected{
-	border-style: solid;
+	background-color: grey !important;
 }
 
 section h1{

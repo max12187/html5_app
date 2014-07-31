@@ -197,7 +197,7 @@ $(document).ready(function(){
 
 function scroll(li, parent, direction){
 	parent.animate({
-        scrollLeft: parent.scrollLeft() + (li.width()*direction)
+        scrollLeft: parent.scrollLeft() + ((li.width()) * direction)
 	}, 250);
 }
 

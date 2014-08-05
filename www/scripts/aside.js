@@ -132,6 +132,7 @@ $(document).ready(function(){
 		if (e.keyCode == 37) { 
 			//left
 			
+			//if dev
 			if(activeView==0){
 				
 				if(inBounds(devPos-1,dev_videos.lenght)){
@@ -144,7 +145,7 @@ $(document).ready(function(){
 					$('#dev_title').text(dev_videos[devPos].title);
 				}
 			}
-			else{
+			else{ //else quick
 				
 				if(inBounds(quickPos-1,quick_videos.lenght)){
 				
@@ -216,9 +217,22 @@ $(document).ready(function(){
 });
 
 function scroll(li, parent, direction){
-	parent.animate({
-        scrollLeft: parent.scrollLeft() + ((li.width()) * direction)
-	}, 250);
+	//right
+	if(direction>0){
+		parent.animate({
+			scrollLeft: (((li.offset().left)))
+		}, 'slow');
+	
+	}
+	else{
+		var x = parent.width() - (li.offset().left + li.width());
+		console.log(x);
+		parent.animate({
+			scrollLeft: parent.scrollLeft() - x
+		}, 'slow');
+	
+	}
+	
 }
 
 function selectSeries(activeView){
@@ -247,15 +261,40 @@ function selectSeries(activeView){
 }
 
 function selectItem(oldItem, newItem, parent, direction){
+		//right
+		if(direction>0){
+			oldItem.removeClass('selected');
+			newItem.addClass('selected');
+			
+			//check to see if we need to scroll
+			var corner = newItem.offset().left + newItem.width();
+			
+			if(corner > parent.width()){
+				scroll(newItem, parent, direction)
+			}
+			
+		}
+		else{
+			oldItem.removeClass('selected');
+			newItem.addClass('selected');
+			
+			//check to see if we need to scroll
+			var corner = newItem.offset().left;
+			
+			if(corner < 0){
+				scroll(newItem, parent, direction)
+			}
+			
+		
+		}
 	
-		oldItem.removeClass('selected');
-		newItem.addClass('selected');
-	
-		scroll(newItem , parent, direction);
+		//scroll(newItem , parent, direction);
+		
+		
 }
 
 function inBounds(i,size){
-	return !(i < 0 || i > size)
+	return !(i < 0 || i > size-1)
 }
 
 

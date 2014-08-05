@@ -70,7 +70,8 @@ section{
 	margin: auto;
 	box-shadow: 5px 5px 3px #888888;
 	background-color: white;
-	
+	padding: 0;
+	margin:0; 
 }
 
 
@@ -109,6 +110,7 @@ li {
 .series_selected{
 	background-color: grey !important;
 }
+
 
 section h1{
 	padding:0;

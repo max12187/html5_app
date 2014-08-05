@@ -2,11 +2,12 @@
 var isHidden = true;
 
 //A class that represents each video
-function Video(title, description, url, duration){
+function Video(title, description, url, duration, date){
 	this.title = title;
 	this.description = description;
 	this.url = url;
 	this.duration = duration;
+	this.date = date;
 }
 
 //another callback for the video links
@@ -20,12 +21,13 @@ function expandMenu(){
 	$("aside").show();
 			
 	isHidden = false;
-			
-	//pause the video
-	$('#video').get(0).pause();
+
 			
 	//now dim the section, put it out of focus
 	$("section").css({'opacity':'0.10'});
+	
+	//pause the video
+	$('#video').get(0).pause();
 }
 
 function retractMenu(){
@@ -61,9 +63,11 @@ $(document).ready(function(){
 					
 					var video_url = entry.xmlNode.getElementsByTagName('enclosure')[0].getAttribute("url");
 					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
+					var date = entry.xmlNode.getElementsByTagName("pubDate")[0].childNodes[0].nodeValue;
 					
-	
-					var video = new Video(entry.title, entry.content, video_url, durration);
+					console.log(date);
+					
+					var video = new Video(entry.title, entry.content, video_url, durration, date);
 					dev_videos.push(video);
 					
 					
@@ -108,13 +112,10 @@ $(document).ready(function(){
 					$("#dev_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
 					
 					
-					//now add the episode number and running time
-					if(i+1 < 10){ //add a zero to the front if it is a single digit
-						$("#dev_link"+i).append('<p id = "episode_number">Episode '+0+(i+1)+'<p>');
-					}
-					else{
-						$("#dev_link"+i).append('<p id = "episode_number">Episode '+(i+1)+'<p>');
-					}
+					//now add the date and running time
+					var date = dev_videos[i].date.split(" ");
+					$("#dev_link"+i).append('<p id = "episode_number">Published: '+date[2]+", "+date[3]+'<p>');
+
 					//get running time
 					$("#dev_link"+i).append('<p id = "running_time">Running Time: '+dev_videos[i].duration+'<p>');
 					
@@ -162,8 +163,11 @@ $(document).ready(function(){
 					var video_url = entry.xmlNode.getElementsByTagName('enclosure')[0].getAttribute("url");
 					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
 					
-	
-					var video = new Video(entry.title, entry.content, video_url, durration);
+					var date = entry.xmlNode.getElementsByTagName("pubDate")[0].childNodes[0].nodeValue;
+					
+					console.log(date);
+					
+					var video = new Video(entry.title, entry.content, video_url, durration, date);
 					quick_videos.push(video);
 					
 					
@@ -214,12 +218,8 @@ $(document).ready(function(){
 					}
 					
 					//now add the episode number and running time
-					if(i+1 < 10){ //add a zero to the front if it is a single digit
-						$("#quick_link"+i).append('<p id = "episode_number">Episode '+0+(i+1)+'<p>');
-					}
-					else{
-						$("#quick_link"+i).append('<p id = "episode_number">Episode '+(i+1)+'<p>');
-					}
+					var date = quick_videos[i].date.split(" ");
+					$("#quick_link"+i).append('<p id = "episode_number">Published: '+date[2]+", "+date[3]+'<p>');
 					//get running time
 					$("#quick_link"+i).append('<p id = "running_time">Running Time: '+quick_videos[i].duration+'<p>');
 					

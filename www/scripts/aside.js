@@ -291,7 +291,7 @@ function selectItem(oldItem, newItem, parent, direction){
 			if(corner > parent.width()){
 				console.log( parent.width());
 				if(activeView==0){
-					if(devPos >= 7){
+					if(devPos >= 6){
 						parent.animate({
 							scrollLeft: 3000
 						}, 'slow');
@@ -304,7 +304,7 @@ function selectItem(oldItem, newItem, parent, direction){
 				}
 				else{
 					
-					if(quickPos >= 7){
+					if(quickPos >= 6){
 						parent.animate({
 							scrollLeft: 3000
 						}, 'slow');

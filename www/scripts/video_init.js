@@ -44,6 +44,26 @@ $(document).ready(function(){
 	$('#video').css({'height':height - titleHeight});
 	
 	
+	//input
+	$(window).keypress(function(e) {
+		
+		
+		//enter
+		if(e.which == 13){
+			var video = $('#video').get(0);
+
+			
+	
+			if (!video.paused) {
+				 video.pause();
+			}
+			else{
+				video.play();
+			}
+			
+		}
+       //do stuff with "key" here...
+   });
 	
 	
 	

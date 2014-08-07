@@ -66,7 +66,7 @@ $(document).ready(function(){
 				for(var i = 0; i < dev_videos.length; i++){
 					
 					
-					$('#dev_list').append('<li id = "dev'+i+'"><img id = "item" src = "img/dev.jpg" ></li>');
+					$('#dev_list').append('<li id = "dev'+i+'"><img id = "item" src = "img/dev.png" ></li>');
 					//console.log("log");
 					dev_videos[i].li = $('#dev'+i)
 						

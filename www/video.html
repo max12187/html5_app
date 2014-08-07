@@ -53,12 +53,12 @@
 			//this will decide what thumbnail to display
 			var type = video[0];
 			if(type=='dev'){
-				$('#display').append('<center><video id = "video" autobuffer controls poster="img/dev.jpg">' +
+				$('#display').append('<center><video id = "video" autobuffer autoplay controls poster="img/dev.jpg">' +
 				'<source src="'+url+'" type="video/mp4"></source>' +
 				'</video></center>');
 			}
 			else{
-				$('#display').append('<center><video id = "video" autobuffer controls poster="img/quick.jpg">' +
+				$('#display').append('<center><video id = "video" autobuffer autoplay controls poster="img/quick.jpg">' +
 				'<source src="'+url+'" type="video/mp4"></source>' +
 				'</video></center>');
 			}
@@ -71,12 +71,7 @@
 			//add the description
 			$('#display').append('<h2 style = "text-align: center">'+description+'</h2>');
 			
-			//now lets move the home icon to the right
-			$('#back_button').css({'height':'50px','padding':'0'});
-			var width = $('body').width() - 50;
-			var height = $('header').height() - 50;
 			
-			$('#back_button').css({'left':width,'top':0});
 			
 		
 		});
@@ -85,48 +80,21 @@
 		$('#video').get(0).play();
 	</script>
 	
+	
 	<!-- MINE!!! -->
 	<script src="scripts/video_init.js"></script>
-	<script src="scripts/hammer.min.js"></script>
-	<script src="scripts/aside.js"></script>
-	
 	
 </head>
 
 <body>
 	
 	<header>
-		  <img id = "aside_button" src = "img/threelines.png">
-		  <img id = "logo" src = "img/logo.png">
-		   <a href = "index.html" target="_self"><img id = "back_button" src = "img/home.png"></a>
+		  
 		
 	</header>
 	
 	<aside>
-		<!--  -->
-		<div id = "aside_menu">
 		
-			<center><h1 id = "aside_label">Video Menu</h1></center>
-			<img id = "dev_button" src = "img/dev_button.png" style = "float:left; margin-left:1em;">
-			<img id = "quick_button" src = "img/quick_button.png" style = "float:right; margin-right:1em;">
-			
-		</div>
-		
-	
-		<div id = "dev_menu">
-			<div id = "dev_label">
-				<h1 style = "text-align : center; color: white; margin:0;"> DEV</h1>
-				<center><h2 style = "color: white; padding-bottom:7px;">News for New Web, Mobile, and Game Developers.</h2></center>
-			</div>
-			
-		</div>
-		
-		<div id = "quick_menu">
-			<div id = "quick_label">
-				<h1 style = "text-align : center; color: white;"> QuickBytes</h1>
-				<center><h2 style = "color: white;">Easy Programming Tutorials for Beginners</h2></center>
-			</div>
-		</div>
 	</aside>
 	
 	<section>

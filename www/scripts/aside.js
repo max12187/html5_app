@@ -9,9 +9,9 @@ function Video(title, description, url, duration){
 
 //another callback for the video links
 function videoCallback(type, video){
-	return function(){
+	
 		window.open("video.html?"+type+'@'+video.url+'@'+video.title+'@'+video.description,'_self',false);
-	}
+	
 }
 
 
@@ -230,22 +230,12 @@ $(document).ready(function(){
 			
 			//get the selected video
 			if(activeView == 0){
-				var url = dev_videos[devPos].url;
-				
-				document.querySelector("#video").src = url;
-				$('#video').show();
-				document.getElementById("video").webkitEnterFullScreen();
-				$('#video').hide();
+				videoCallback('dev', dev_videos[devPos]);
 	
 			}
 			else{
 			
-				var url = quick_videos[quickPos].url;
 				
-				document.querySelector("#video").src = url;
-				$('#video').show();
-				document.getElementById("video").webkitEnterFullScreen();
-				$('#video').hide();
 			
 			}
 			

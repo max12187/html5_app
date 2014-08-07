@@ -65,7 +65,7 @@ $(document).ready(function(){
 					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
 					var date = entry.xmlNode.getElementsByTagName("pubDate")[0].childNodes[0].nodeValue;
 					
-					console.log(date);
+					console.log(video_url);
 					
 					var video = new Video(entry.title, entry.content, video_url, durration, date);
 					dev_videos.push(video);
@@ -165,7 +165,7 @@ $(document).ready(function(){
 					
 					var date = entry.xmlNode.getElementsByTagName("pubDate")[0].childNodes[0].nodeValue;
 					
-					console.log(date);
+					console.log(video_url);
 					
 					var video = new Video(entry.title, entry.content, video_url, durration, date);
 					quick_videos.push(video);

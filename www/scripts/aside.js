@@ -226,7 +226,29 @@ $(document).ready(function(){
 		
 		//enter
 		if(e.which == 13){
-			alert('load video');
+			//alert('load video');
+			
+			//get the selected video
+			if(activeView == 0){
+				var url = dev_videos[devPos].url;
+				
+				document.querySelector("#video").src = url;
+				$('#video').show();
+				document.getElementById("video").webkitEnterFullScreen();
+				$('#video').hide();
+	
+			}
+			else{
+			
+				var url = quick_videos[quickPos].url;
+				
+				document.querySelector("#video").src = url;
+				$('#video').show();
+				document.getElementById("video").webkitEnterFullScreen();
+				$('#video').hide();
+			
+			}
+			
 		}
        //do stuff with "key" here...
    });

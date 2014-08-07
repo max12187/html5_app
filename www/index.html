@@ -47,9 +47,9 @@
 			var height = ($(document).height() / 2) - 25;
 			$('#dev,#quick').height(height);
 			
-			//set the height of the items
-		//	$('#item').height(height-50);
-			
+			//place the right arrows
+			var left = $('#dev').width() - $('#dev_right').width();
+			$('#dev_right').css({'left':left});
 			
 		});
 	
@@ -96,6 +96,7 @@
 		<div id = "quick" style = "text-align : center;">
 			<h1>QuickBytes</h1>
 			<h3 id = "quick_title">QuickBytes</h3>
+			
 			<div>
 				<ul id = "quick_list">
 				

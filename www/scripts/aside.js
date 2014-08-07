@@ -21,6 +21,8 @@ var quick_videos = [];
 
 var devPos = 0;
 var quickPos = 0;
+
+var activeView = 0;
 	
 $(document).ready(function(){
 	
@@ -28,7 +30,7 @@ $(document).ready(function(){
 	
 	
 	//0 for dev, 1 for quick
-	var activeView = 0;
+
 	
 	
 
@@ -48,6 +50,7 @@ $(document).ready(function(){
 					var video_url = entry.xmlNode.getElementsByTagName('enclosure')[0].getAttribute("url");
 					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
 					
+				
 	
 					var video = new Video(entry.title, entry.content, video_url, durration);
 					dev_videos.push(video);
@@ -64,17 +67,23 @@ $(document).ready(function(){
 				
 				//now the code to fill the aside with links
 				for(var i = 0; i < dev_videos.length; i++){
+				
+					var url = dev_videos[i].url.split("/");
+					var front = url.slice(0,4).join("/") + "/" +"thumbnails/";
+					var end = url.slice(4).join("/").split(".")[0] + ".png";
+					
+					var imgSrc = front + end;
 					
 					
-					$('#dev_list').append('<li id = "dev'+i+'"><img id = "item" src = "img/dev.png" ></li>');
+					$('#dev_list').append('<li id = "dev'+i+'"><img id = "item" src = "'+imgSrc+'" ></li>');
 					//console.log("log");
 					dev_videos[i].li = $('#dev'+i)
 						
 				}
 					
-					
+				$('#dev_list').append("<div>                          </div>");	
 				
-				//console.log(dev_videos[3].li);
+			
 			
 			
 		}
@@ -96,6 +105,7 @@ $(document).ready(function(){
 					var video_url = entry.xmlNode.getElementsByTagName('enclosure')[0].getAttribute("url");
 					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
 					
+				
 	
 					var video = new Video(entry.title, entry.content, video_url, durration);
 					quick_videos.push(video);
@@ -111,9 +121,16 @@ $(document).ready(function(){
 					//now the code to fill the aside with links
 				for(var i = 0; i < quick_videos.length; i++){
 					
+					var url = quick_videos[i].url.split("/");
+					var front = url.slice(0,4).join("/") + "/" +"thumbnails/";
+					var end = url.slice(4).join("/").split(".")[0] + ".png";
 					
-					$('#quick_list').append('<li id = "quick'+i+'"><img id = "item" src = "img/quick.jpg" ></li>');
-					//console.log("log");
+					var imgSrc = front + end;
+					
+					
+					
+					$('#quick_list').append('<li id = "quick'+i+'"><img id = "item" src = "'+imgSrc+'" ></li>');
+					
 					quick_videos[i].li = $('#quick'+i)
 						
 				}
@@ -135,7 +152,7 @@ $(document).ready(function(){
 			//if dev
 			if(activeView==0){
 				
-				if(inBounds(devPos-1,dev_videos.lenght)){
+				if(inBounds(devPos-1,dev_videos.length)){
 				
 					selectItem(dev_videos[devPos].li , dev_videos[devPos-1].li , $('#dev_list'), -1);
 					devPos-=1;
@@ -147,7 +164,7 @@ $(document).ready(function(){
 			}
 			else{ //else quick
 				
-				if(inBounds(quickPos-1,quick_videos.lenght)){
+				if(inBounds(quickPos-1,quick_videos.length)){
 				
 					selectItem(quick_videos[quickPos].li , quick_videos[quickPos-1].li , $('#quick_list'), -1);
 					quickPos-=1;
@@ -163,8 +180,8 @@ $(document).ready(function(){
 			//right
 			
 			if(activeView==0){
-			
-				if(inBounds(devPos+1,dev_videos.lenght)){
+				console.log(inBounds(devPos+1, dev_videos.length));
+				if(inBounds(devPos+1, dev_videos.length)){
 				
 					selectItem(dev_videos[devPos].li , dev_videos[devPos+1].li , $('#dev_list'), 1);
 					devPos+=1;
@@ -175,7 +192,7 @@ $(document).ready(function(){
 			}
 			else{
 				
-				if(inBounds(quickPos+1,quick_videos.lenght)){
+				if(inBounds(quickPos+1,quick_videos.length)){
 				
 					selectItem(quick_videos[quickPos].li , quick_videos[quickPos+1].li , $('#quick_list'), 1);
 					quickPos+=1;
@@ -218,6 +235,8 @@ $(document).ready(function(){
 
 function scroll(li, parent, direction){
 	//right
+	console.log(li.offset().left);
+	console.log(li.attr('id'));
 	if(direction>0){
 		parent.animate({
 			scrollLeft: (((li.offset().left)))
@@ -236,14 +255,14 @@ function scroll(li, parent, direction){
 }
 
 function selectSeries(activeView){
-	if (activeView == 0){
+	if (activeView == 1){
 		//remove for quick add for dev
 		$('#quick').removeClass('series_selected');
 		$('#dev').addClass('series_selected');
 		
 		//deselect the active for quick and select the active for dev
-		quick_videos[quickPos].li.removeClass('selected');
-		dev_videos[devPos].li.addClass('selected');
+		quick_videos[quickPos].li.addClass('selected');
+		dev_videos[devPos].li.removeClass('selected');
 		
 		$('#dev_title').text(dev_videos[devPos].title);
 	}
@@ -252,8 +271,8 @@ function selectSeries(activeView){
 		$('#dev').removeClass('series_selected');
 		$('#quick').addClass('series_selected');
 		
-		dev_videos[devPos].li.removeClass('selected');
-		quick_videos[quickPos].li.addClass('selected');
+		dev_videos[devPos].li.addClass('selected');
+		quick_videos[quickPos].li.removeClass('selected');
 		
 		$('#quick_title').text(quick_videos[quickPos].title);
 	
@@ -270,7 +289,36 @@ function selectItem(oldItem, newItem, parent, direction){
 			var corner = newItem.offset().left + newItem.width();
 			
 			if(corner > parent.width()){
-				scroll(newItem, parent, direction)
+				console.log( parent.width());
+				if(activeView==0){
+					if(devPos >= 7){
+						parent.animate({
+							scrollLeft: 3000
+						}, 'slow');
+					}
+					else{
+				
+						scroll(newItem, parent, direction);
+				
+					}
+				}
+				else{
+					
+					if(quickPos >= 7){
+						parent.animate({
+							scrollLeft: 3000
+						}, 'slow');
+					}
+					else{
+				
+						scroll(newItem, parent, direction);
+				
+					}
+				
+				}
+				
+				
+				
 			}
 			
 		}
@@ -282,7 +330,7 @@ function selectItem(oldItem, newItem, parent, direction){
 			var corner = newItem.offset().left;
 			
 			if(corner < 0){
-				scroll(newItem, parent, direction)
+				scroll(newItem, parent, direction);
 			}
 			
 		
@@ -294,7 +342,7 @@ function selectItem(oldItem, newItem, parent, direction){
 }
 
 function inBounds(i,size){
-	return !(i < 0 || i > size-1)
+	return !(i < 0 || i > size-1);
 }
 
 

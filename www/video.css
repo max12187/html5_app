@@ -11,17 +11,6 @@ article, aside, figure, footer, header, nav, section {
 	
 }
 
-header{
-	background-color:#004669;
-	height: 50px;
-	width:100%;
-	position: fixed;
-	z-index: 1;
-	
-	
-	
-	
-}
 
 body{
 	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");

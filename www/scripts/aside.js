@@ -1,10 +1,11 @@
 //A class that represents each video
-function Video(title, description, url, duration){
+function Video(title, description, url, duration, date){
 	this.title = title;
 	this.description = description;
 	this.url = url;
 	this.duration = duration;
 	this.li = null;
+	this.date = date;
 }
 
 //another callback for the video links
@@ -52,9 +53,18 @@ $(document).ready(function(){
 					var video_url = entry.xmlNode.getElementsByTagName('enclosure')[0].getAttribute("url");
 					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
 					
-				
-	
-					var video = new Video(entry.title, entry.content, video_url, durration);
+					var date = entry.xmlNode.getElementsByTagName("pubDate")[0].childNodes[0].nodeValue;
+			
+					console.log(date);
+					
+					if(isNew(date.split(" ")[2])){
+						var video = new Video(entry.title+" (NEW) ", entry.content, video_url, durration, date);
+					}
+					else{
+						var video = new Video(entry.title, entry.content, video_url, durration, date);
+					}
+			
+					
 					dev_videos.push(video);
 					
 					
@@ -78,9 +88,10 @@ $(document).ready(function(){
 					
 					
 					$('#dev_list').append('<li id = "dev'+i+'"><img id = "item" src = "'+imgSrc+'" ></li>');
-					//console.log("log");
+					
 					dev_videos[i].li = $('#dev'+i)
-						
+					
+					
 				}
 					
 				$('#dev_list').append("<div>                          </div>");	
@@ -107,9 +118,9 @@ $(document).ready(function(){
 					var video_url = entry.xmlNode.getElementsByTagName('enclosure')[0].getAttribute("url");
 					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
 					
+					var date = entry.xmlNode.getElementsByTagName("pubDate")[0].childNodes[0].nodeValue;
 				
-	
-					var video = new Video(entry.title, entry.content, video_url, durration);
+					var video = new Video(entry.title, entry.content, video_url, durration, date);
 					quick_videos.push(video);
 					
 					
@@ -416,6 +427,7 @@ function overlay(item){
 	$('#thumb').attr("src", imgSrc);
 	
 	$('#description').text(item.description);
+	console.log(item.description);
 	
 	//put the thumbnail overlay on the thumbnail
 	$("#play_overlay").css({'height':$("#thumb").height() - 100})
@@ -435,6 +447,26 @@ function inBounds(i,size){
 	return !(i < 0 || i > size-1);
 }
 
-
+function isNew(date){
+	var d = new Date();
+	var month = new Array();
+	month[0] = "January";
+	month[1] = "February";
+	month[2] = "March";
+	month[3] = "April";
+	month[4] = "May";
+	month[5] = "June";
+	month[6] = "July";
+	month[7] = "August";
+	month[8] = "September";
+	month[9] = "October";
+	month[10] = "November";
+	month[11] = "December";
+	var n = month[d.getMonth()];
+	
+	return n.indexOf(date) > -1;
+	
+	
+}
 
 

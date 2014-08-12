@@ -123,6 +123,7 @@ section{
 
 #thumb{
 	width: 60%;
+	padding-top: 1em;
 }
 
 #play_overlay{
@@ -131,7 +132,7 @@ section{
 }
 
 #back_button{
-	width: 20%;
+	width: 15%;
 	display: block;
 	margin-left: auto; 
 	margin-right: auto;
@@ -142,7 +143,7 @@ section{
 }
 
 #play_button{
-	width: 20%;
+	width: 15%;
 	display: block;
 	margin-left: auto; 
 	margin-right: auto;
@@ -151,7 +152,12 @@ section{
 	
 }
 
-
+#new{
+	position: relative;
+	left: 0;
+    top: 0;
+	width : 20%;
+}
 
 ul {
 	padding: 0;

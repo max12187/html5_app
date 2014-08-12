@@ -23,6 +23,8 @@ var devPos = 0;
 var quickPos = 0;
 
 var activeView = 0;
+
+var active_button = 0;
 	
 $(document).ready(function(){
 	
@@ -149,29 +151,33 @@ $(document).ready(function(){
 		if (e.keyCode == 37) { 
 			//left
 			
-			//if dev
-			if(activeView==0){
-				
-				if(inBounds(devPos-1,dev_videos.length)){
-				
-					selectItem(dev_videos[devPos].li , dev_videos[devPos-1].li , $('#dev_list'), -1);
-					devPos-=1;
-					
-					
-					//display the name
-					$('#dev_title').text(dev_videos[devPos].title);
-				}
-			}
-			else{ //else quick
-				
-				if(inBounds(quickPos-1,quick_videos.length)){
-				
-					selectItem(quick_videos[quickPos].li , quick_videos[quickPos-1].li , $('#quick_list'), -1);
-					quickPos-=1;
-					
-					$('#quick_title').text(quick_videos[quickPos].title);
-				}
+			//see if the overlay is up
+			if(!$("#overlay").is(":visible") ){
 			
+				//if dev
+				if(activeView==0){
+					
+					if(inBounds(devPos-1,dev_videos.length)){
+					
+						selectItem(dev_videos[devPos].li , dev_videos[devPos-1].li , $('#dev_list'), -1);
+						devPos-=1;
+						
+						
+						//display the name
+						$('#dev_title').text(dev_videos[devPos].title);
+					}
+				}
+				else{ //else quick
+					
+					if(inBounds(quickPos-1,quick_videos.length)){
+					
+						selectItem(quick_videos[quickPos].li , quick_videos[quickPos-1].li , $('#quick_list'), -1);
+						quickPos-=1;
+						
+						$('#quick_title').text(quick_videos[quickPos].title);
+					}
+				
+				}
 			}
 			
 			return false;
@@ -179,42 +185,60 @@ $(document).ready(function(){
 		else if (e.keyCode == 39){
 			//right
 			
-			if(activeView==0){
-				console.log(inBounds(devPos+1, dev_videos.length));
-				if(inBounds(devPos+1, dev_videos.length)){
-				
-					selectItem(dev_videos[devPos].li , dev_videos[devPos+1].li , $('#dev_list'), 1);
-					devPos+=1;
-					
-					//display the name
-					$('#dev_title').text(dev_videos[devPos].title);
-				}
-			}
-			else{
-				
-				if(inBounds(quickPos+1,quick_videos.length)){
-				
-					selectItem(quick_videos[quickPos].li , quick_videos[quickPos+1].li , $('#quick_list'), 1);
-					quickPos+=1;
-					
-					$('#quick_title').text(quick_videos[quickPos].title);
-					
-				}
+			if(!$("#overlay").is(":visible") ){
 			
+				if(activeView==0){
+					console.log(inBounds(devPos+1, dev_videos.length));
+					if(inBounds(devPos+1, dev_videos.length)){
+					
+						selectItem(dev_videos[devPos].li , dev_videos[devPos+1].li , $('#dev_list'), 1);
+						devPos+=1;
+						
+						//display the name
+						$('#dev_title').text(dev_videos[devPos].title);
+					}
+				}
+				else{
+					
+					if(inBounds(quickPos+1,quick_videos.length)){
+					
+						selectItem(quick_videos[quickPos].li , quick_videos[quickPos+1].li , $('#quick_list'), 1);
+						quickPos+=1;
+						
+						$('#quick_title').text(quick_videos[quickPos].title);
+						
+					}
+				
+				}
 			}
 			return false;
 		}
 		else if (e.keyCode == 38){
-			//up
-			activeView = 0;
-			selectSeries(activeView);
-			return false;
+			if(!$("#overlay").is(":visible") ){
+				//up
+				activeView = 0;
+				selectSeries(activeView);
+				return false;
+			}
+			else{
+				active_button = 0;
+				
+				$("#back_button").addClass('deselected');
+				$("#play_button").removeClass('deselected');
+			}
 		}
 		else if (e.keyCode == 40){
+			if(!$("#overlay").is(":visible") ){
 			//down
-			activeView = 1;
-			selectSeries(activeView);
-			return false;
+				activeView = 1;
+				selectSeries(activeView);
+				return false;
+			}
+			else{
+				active_button = 1;
+				$("#play_button").addClass('deselected');
+				$("#back_button").removeClass('deselected');
+			}
 		}
 		
 		
@@ -222,7 +246,7 @@ $(document).ready(function(){
 	});
 	
 	$(window).keypress(function(e) {
-		//alert(e.which);
+
 		
 		//enter
 		if(e.which == 13){
@@ -230,12 +254,36 @@ $(document).ready(function(){
 			
 			//get the selected video
 			if(activeView == 0){
-				videoCallback('dev', dev_videos[devPos]);
+				//display the overlay
+				
+				if(!$("#overlay").is(":visible") ){
+					overlay(dev_videos[devPos]);
+				}
+				else{
+					if(active_button == 0){
+						videoCallback('dev',dev_videos[devPos])
+					}
+					else{
+						$('#overlay').hide();
+						$('#overlay').siblings().css({'opacity':'1'})
+					}
+				}
 	
 			}
 			else{
 			
-				
+				if(!$("#overlay").is(":visible") ){
+					overlay(quick_videos[quickPos]);
+				}
+				else{
+					if(active_button == 0){
+						videoCallback('quick',quick_videos[quickPos])
+					}
+					else{
+						$('#overlay').hide();
+						$('#overlay').siblings().css({'opacity':'1'})
+					}
+				}
 			
 			}
 			
@@ -351,6 +399,36 @@ function selectItem(oldItem, newItem, parent, direction){
 		//scroll(newItem , parent, direction);
 		
 		
+}
+
+function overlay(item){
+	$('#overlay').show();
+	$('#overlay').siblings().css({'opacity':'.1'})
+
+	$('#title').text(item.title);
+	
+		var url = item.url.split("/");
+		var front = url.slice(0,4).join("/") + "/" +"thumbnails/";
+		var end = url.slice(4).join("/").split(".")[0] + ".png";
+					
+		var imgSrc = front + end;
+	
+	$('#thumb').attr("src", imgSrc);
+	
+	$('#description').text(item.description);
+	
+	//put the thumbnail overlay on the thumbnail
+	$("#play_overlay").css({'height':$("#thumb").height() - 100})
+	
+	$("#play_overlay").css({'top':$("#thumb").offset().top})
+	
+	var leftOffset = ($("#thumb").width() - $("#play_overlay").width()) /2;
+	$("#play_overlay").css({'left':$("#thumb").offset().left + leftOffset})
+	
+	$("#back_button").addClass('deselected');
+	$("#play_button").removeClass('deselected');
+			
+	active_button = 0;
 }
 
 function inBounds(i,size){

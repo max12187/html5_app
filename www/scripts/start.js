@@ -87,31 +87,34 @@ $(document).ready(function(){
 				//now the code to fill the aside with links
 				for(var i = 0; i < dev_videos.length; i++){
 				
+					//Use the url of the video to map to the thumbnail in the same directory
 					var url = dev_videos[i].url.split("/");
 					var front = url.slice(0,4).join("/") + "/" +"thumbnails/";
 					var end = url.slice(4).join("/").split(".")[0] + ".png";
 					
 					var imgSrc = front + end;
 					
-					
+					//Try to add the thumbnail as an item to the list
 					$('#dev_list').append('<li id = "dev'+i+'"><img id = "item" class = "devitem'+i+'" src = "'+imgSrc+'" ></li>');
 					dev_videos[i].thumb = imgSrc;
 						
+					//If the thumbnail isn't on the server, handle it.
 					$(".devitem"+i).error(function () {
 						var n = $(this).attr('class');
 						n = n.substr(n.length - 1);
 						
-						console.log(n);
 						this.src = "img/dev.jpg";
 						dev_videos[n].thumb = "img/dev.jpg";
 						
 					});
 					
+					//Save a reference to the list item just created
 					dev_videos[i].li = $('#dev'+i)
 					
 					
 				}
-					
+				
+				//add some blank space
 				$('#dev_list').append("<div>                          </div>");	
 				
 			
@@ -304,7 +307,6 @@ $(document).ready(function(){
 		
 		//enter
 		if(e.which == 13){
-			//alert('load video');
 			
 			//get the selected video
 			if(activeView == 0){
@@ -314,9 +316,11 @@ $(document).ready(function(){
 					overlay(dev_videos[devPos]);
 				}
 				else{
+					//play button
 					if(active_button == 0){
 						videoCallback('dev',dev_videos[devPos])
 					}
+					//home button
 					else{
 						$('#overlay').hide();
 						$('#overlay').siblings().css({'opacity':'1'})
@@ -450,8 +454,6 @@ function selectItem(oldItem, newItem, parent, direction){
 		
 		}
 	
-		//scroll(newItem , parent, direction);
-		
 		
 }
 
@@ -500,11 +502,5 @@ function isNew(date){
 	
 }
 
-function UrlExists(url)
-{
-    var img = new Image();
-   img.src = url;
-   return img.height != 0;
-}
 
 

@@ -39,21 +39,10 @@
 	
 	<script>
 		$(document).ready(function(){
-		
-		
 			
 			//set the size of the dev and quick divs to fill up the screen
 			var height = ($(document).height() / 2) - 25;
 			$('#dev,#quick').height(height);
-			
-			//place the right arrows
-			var left = $('#dev').width() - $('#dev_right').width();
-			$('#dev_right').css({'left':left});
-			
-			
-			
-			
-			
 			
 			
 			$('#overlay').hide();
@@ -62,7 +51,6 @@
 	</script>
 
 	<link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="aside.css">
 
 </head>
 
@@ -106,10 +94,7 @@
 		<!-- overlay -->
 		<div id = "overlay">
 			
-			
 			<img id = "thumb" src=""></img>
-			<!--img id = "play_overlay" src="img/play_overlay.png"></img-->
-			
 			<p id = "description"></p>
 				
 			
@@ -117,6 +102,7 @@
 			<img id = "back_button" src = "img/back.png">
 			
 		</div>
+		<!-- /overlay -->
 		
 	</section>
 	

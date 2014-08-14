@@ -33,9 +33,3 @@ $(window).load(function() {
 	
 	
 	
-	
-	
-	
-	
-	
-	

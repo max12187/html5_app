@@ -6,6 +6,7 @@ function Video(title, description, url, duration, date){
 	this.duration = duration;
 	this.li = null;
 	this.date = date;
+	this.thumb = null;
 }
 
 //another callback for the video links
@@ -23,6 +24,7 @@ var quick_videos = [];
 var devPos = 0;
 var quickPos = 0;
 
+//0 for dev, 1 for quick
 var activeView = 0;
 
 var active_button = 0;
@@ -32,7 +34,7 @@ $(document).ready(function(){
 	
 	
 	
-	//0 for dev, 1 for quick
+	
 
 	
 	
@@ -55,13 +57,18 @@ $(document).ready(function(){
 					
 					var date = entry.xmlNode.getElementsByTagName("pubDate")[0].childNodes[0].nodeValue;
 			
-					console.log(date);
+					
+					//take off the <p></p>
+					var html = entry.content;
+					var div = document.createElement("div");
+					div.innerHTML = html;
+					var text = div.textContent || div.innerText || "";
 					
 					if(isNew(date.split(" ")[2])){
-						var video = new Video(entry.title+" (NEW) ", entry.content, video_url, durration, date);
+						var video = new Video(entry.title+" (NEW) ", text, video_url, durration, date);
 					}
 					else{
-						var video = new Video(entry.title, entry.content, video_url, durration, date);
+						var video = new Video(entry.title, text, video_url, durration, date);
 					}
 			
 					
@@ -87,7 +94,18 @@ $(document).ready(function(){
 					var imgSrc = front + end;
 					
 					
-					$('#dev_list').append('<li id = "dev'+i+'"><img id = "item" src = "'+imgSrc+'" ></li>');
+					$('#dev_list').append('<li id = "dev'+i+'"><img id = "item" class = "devitem'+i+'" src = "'+imgSrc+'" ></li>');
+					dev_videos[i].thumb = imgSrc;
+						
+					$(".devitem"+i).error(function () {
+						var n = $(this).attr('class');
+						n = n.substr(n.length - 1);
+						
+						console.log(n);
+						this.src = "img/dev.jpg";
+						dev_videos[n].thumb = "img/dev.jpg";
+						
+					});
 					
 					dev_videos[i].li = $('#dev'+i)
 					
@@ -119,8 +137,21 @@ $(document).ready(function(){
 					var durration = entry.xmlNode.getElementsByTagNameNS("*", "duration")[0].childNodes[0].nodeValue;
 					
 					var date = entry.xmlNode.getElementsByTagName("pubDate")[0].childNodes[0].nodeValue;
+					
+					//take off the <p></p>
+					var html = entry.content;
+					var div = document.createElement("div");
+					div.innerHTML = html;
+					var text = div.textContent || div.innerText || "";
+					
+					if(isNew(date.split(" ")[2])){
+						var video = new Video(entry.title+" (NEW) ", text, video_url, durration, date);
+					}
+					else{
+						var video = new Video(entry.title, text, video_url, durration, date);
+					}
 				
-					var video = new Video(entry.title, entry.content, video_url, durration, date);
+					
 					quick_videos.push(video);
 					
 					
@@ -139,10 +170,22 @@ $(document).ready(function(){
 					var end = url.slice(4).join("/").split(".")[0] + ".png";
 					
 					var imgSrc = front + end;
+				
+							
+						 
+						$('#quick_list').append('<li id = "quick'+i+'"><img id = "item" class = "quickitem'+i+'" src = "'+imgSrc+'" ></li>');
+						quick_videos[i].thumb = imgSrc;
+						
+						$(".quickitem"+i).error(function () {
+							
+							this.src = "img/quick.jpg";
+							quick_videos[i].thumb = "img/quick.jpg";
+						});
+						
+						
+						
 					
 					
-					
-					$('#quick_list').append('<li id = "quick'+i+'"><img id = "item" src = "'+imgSrc+'" ></li>');
 					
 					quick_videos[i].li = $('#quick'+i)
 						
@@ -199,7 +242,7 @@ $(document).ready(function(){
 			if(!$("#overlay").is(":visible") ){
 			
 				if(activeView==0){
-					console.log(inBounds(devPos+1, dev_videos.length));
+					
 					if(inBounds(devPos+1, dev_videos.length)){
 					
 						selectItem(dev_videos[devPos].li , dev_videos[devPos+1].li , $('#dev_list'), 1);
@@ -418,24 +461,12 @@ function overlay(item){
 
 	$('#title').text(item.title);
 	
-		var url = item.url.split("/");
-		var front = url.slice(0,4).join("/") + "/" +"thumbnails/";
-		var end = url.slice(4).join("/").split(".")[0] + ".png";
-					
-		var imgSrc = front + end;
 	
-	$('#thumb').attr("src", imgSrc);
+	$('#thumb').attr("src", item.thumb);
 	
 	$('#description').text(item.description);
 	console.log(item.description);
 	
-	//put the thumbnail overlay on the thumbnail
-	$("#play_overlay").css({'height':$("#thumb").height() - 100})
-	
-	$("#play_overlay").css({'top':$("#thumb").offset().top})
-	
-	var leftOffset = ($("#thumb").width() - $("#play_overlay").width()) /2;
-	$("#play_overlay").css({'left':$("#thumb").offset().left + leftOffset})
 	
 	$("#back_button").addClass('deselected');
 	$("#play_button").removeClass('deselected');
@@ -467,6 +498,13 @@ function isNew(date){
 	return n.indexOf(date) > -1;
 	
 	
+}
+
+function UrlExists(url)
+{
+    var img = new Image();
+   img.src = url;
+   return img.height != 0;
 }
 
 

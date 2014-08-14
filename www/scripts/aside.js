@@ -104,10 +104,11 @@ $(document).ready(function(){
 					
 					$("#dev_link"+i).append('<div id = "title" class = "dev_title'+i+'"><h2>'+dev_videos[i].title+'</h2></div>');
 					
+					//add the play image
 					var height = $(".dev_title"+i).height();
 					var top = (height - 62)/2;
 					$(".dev_title"+i).append('<img id = "play" src="img/play.png" style = "top:-'+top+'">');
-					//<img id = "play" src="img/play.png">
+				
 					
 					$("#dev_link"+i).append('<div id = "description"><p>'+dev_videos[i].description+'</p></div>');
 					
@@ -124,7 +125,7 @@ $(document).ready(function(){
 					$('#dev_link'+i).click(videoCallback('dev',dev_videos[i]));
 					
 						
-					//now fix the formatting of the links
+					//now fix the formatting of the links  NOTE: Should move to css sheet...
 					$('#dev_link'+i).css({'background-color':'white'});
 					$('#dev_link'+i).css({'margin':'auto'});
 					$('#dev_link'+i).css({'margin-top':'25px'});

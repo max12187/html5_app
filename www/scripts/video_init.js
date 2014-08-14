@@ -30,6 +30,35 @@ $(document).ready(function(){
 		}
        //do stuff with "key" here...
    });
+   
+   $(document).keydown(function(e){
+		var video = $('#video').get(0);
+		var seekToTime = video.currentTime;
+		
+		
+		if (e.keyCode == 37) { 
+			//left
+			seekToTime -= 1;
+			
+			 
+			
+			//return false;
+		}
+		else if (e.keyCode == 39){
+			//right
+			seekToTime += 1;
+			
+			//return false;
+		}
+		
+			
+		
+		if( seekToTime >= 0 && seekToTime <= video.duration ){
+				video.currentTime = seekToTime;
+		}
+		
+		
+	});
 	
 	
 	

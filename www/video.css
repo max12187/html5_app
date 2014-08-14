@@ -12,17 +12,14 @@ article, aside, figure, footer, header, nav, section {
 }
 
 
+
 body{
 	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");
 	background-size:auto;
 }
 
-#logo{
-	height: 50px;
-	margin-left: 1em;
-	
-	float:left;
-	left: 50px;
+header{
+	height: 0;
 }
 
 #display{
@@ -31,28 +28,13 @@ body{
     
 }
 
-#back_button{
-	height: 50px;
-	position: absolute;
-	z-index: 10;
-}
-
-
-#aside_button{
-	
-	height: 50px;
-	float:left;
-	
-	
-	
-}
 
 a{
 	text-decoration: none;
 }
 
 section{
-	margin-top: 50px;
+	
 	width: 100%;
 	background-image:url("https://s3.amazonaws.com/lecture_attachments/96hxtD6IREWpOkKJVazR_sos.png");
 	background-size:auto;
@@ -76,10 +58,6 @@ section h2{
 section p{
 	font-size: 1em;
 }
-
-
-
-
 
 #side_overlay{
 	position: fixed;

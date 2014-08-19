@@ -65,7 +65,7 @@ $(document).ready(function(){
 					var text = div.textContent || div.innerText || "";
 					
 					if(isNew(date.split(" ")[2])){
-						var video = new Video(entry.title+" <img src = 'img/new_video.png' style = 'height:50px; top:15px; position:relative'></img> ", text, video_url, durration, date);
+						var video = new Video(entry.title+" <img src = 'img/new_video.png' style = 'height:40px; position:absolute; margin-left: .5em; margin-top:-10px'></img> ", text, video_url, durration, date);
 					}
 					else{
 						var video = new Video(entry.title, text, video_url, durration, date);
@@ -148,7 +148,7 @@ $(document).ready(function(){
 					var text = div.textContent || div.innerText || "";
 					
 					if(isNew(date.split(" ")[2])){
-						var video = new Video(entry.title+"  <img src = 'img/new_video.png' style = 'height:50px; top:15px; position:relative'></img>  ", text, video_url, durration, date);
+						var video = new Video(entry.title+" <img src = 'img/new_video.png' style = 'height:40px; position:absolute; margin-left: .5em; margin-top:-10px'></img> ", text, video_url, durration, date);
 					}
 					else{
 						var video = new Video(entry.title, text, video_url, durration, date);

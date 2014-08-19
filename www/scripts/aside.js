@@ -297,15 +297,18 @@ $(document).ready(function(){
 		dragMaxTouches: 2
 	});
 	
-    hammertime.on("dragright", function(event) {
-      if(isHidden){
+    hammertime.on("dragright", function(e) {
+	  var x = e.gesture.center.pageX;
+	  
+	  //You can only swipe before the video player
+      if(isHidden && x < $("#video").offset().left){
 			
 			
 			expandMenu();
 		}
     });
 	
-    hammertime.on("dragleft", function(event) {
+    hammertime.on("dragleft", function(e) {
       if(!isHidden){
 			
 			

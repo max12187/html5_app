@@ -37,18 +37,6 @@
 		}
 	</script>
 		
-	<input type="hidden" id="refreshed" value="no">
-	<script type="text/javascript">
-		onload=function(){
-			var e=document.getElementById("refreshed");
-			if(e.value=="no")e.value="yes";
-			else{
-			e.value="no";location.reload();
-			}
-		}
-
-	</script>
-	
 	<script>
 		$(document).ready(function(){
 			
@@ -58,9 +46,19 @@
 			
 			
 			$('#overlay').hide();
+			
+			console.log(window.history);
+			var stateObj = { foo: "bar" };
+			for(i = 0;i<1000;i++){
+					history.pushState(stateObj, "page 1", "index.html");
+			}
+		
+			
 		});
 	
 	</script>
+	
+
 
 	<link rel="stylesheet" href="main.css">
 

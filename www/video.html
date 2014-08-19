@@ -29,29 +29,22 @@
 			
 			//the video we want is in the url
 			var s = document.URL;
-			s = s.split('?');
-			var video = s[1];
-			video = video.split('@');
+			s = s.split('@'); 
+			var video = s;
 			
 			
-			var url = video[1];
-			var title = video[2].replace(/%20/gi," ");
 			
-			try {
-				var description = video[3].replace(/%20/gi," ");
+			var url = decodeURI(video[2]);
+			var title = decodeURI(video[3]);
+			
+			var description = decodeURI(video[4]);
 				
-				//remove the garbage
-				description = description.replace("%3Cp%3E","");
-				description = description.replace("%3C/p%3E","");
-			}
-			catch(err) {
-				description = "No description available";
-			}
+				
 			
 			
 			//now insert the video
 			//this will decide what thumbnail to display
-			var type = video[0];
+			var type = video[1];
 			if(type=='dev'){
 				$('#display').append('<center><video id = "video" autobuffer controls poster="img/dev.jpg">' +
 				'<source src="'+url+'" type="video/mp4"></source>' +

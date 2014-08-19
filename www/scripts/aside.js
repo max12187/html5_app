@@ -13,7 +13,7 @@ function Video(title, description, url, duration, date){
 //another callback for the video links
 function videoCallback(type, video){
 	return function(){
-		window.open("video.html?"+type+'@'+video.url+'@'+video.title+'@'+video.description,'_self',false);
+		window.open("video.html?@"+type+'@'+video.url+'@'+video.title+'@'+video.description,'_self',false);
 	}
 }
 

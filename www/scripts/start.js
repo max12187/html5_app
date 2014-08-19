@@ -12,7 +12,7 @@ function Video(title, description, url, duration, date){
 //another callback for the video links
 function videoCallback(type, video){
 	
-		window.open("video.html?"+type+'@'+video.url+'@'+video.title+'@'+video.description,'_self',false);
+		window.open("video.html?@"+type+'@'+video.url+'@'+video.title+'@'+video.description,'_self',false);
 	
 }
 
@@ -353,8 +353,7 @@ $(document).ready(function(){
 
 function scroll(li, parent, direction){
 	//right
-	console.log(li.offset().left);
-	console.log(li.attr('id'));
+	
 	if(direction>0){
 		parent.animate({
 			scrollLeft: (((li.offset().left)))
@@ -363,7 +362,7 @@ function scroll(li, parent, direction){
 	}
 	else{
 		var x = parent.width() - (li.offset().left + li.width());
-		console.log(x);
+		
 		parent.animate({
 			scrollLeft: parent.scrollLeft() - x
 		}, 'slow');
@@ -407,7 +406,7 @@ function selectItem(oldItem, newItem, parent, direction){
 			var corner = newItem.offset().left + newItem.width();
 			
 			if(corner > parent.width()){
-				console.log( parent.width());
+				
 				if(activeView==0){
 					if(devPos >= 6){
 						parent.animate({
@@ -467,7 +466,7 @@ function overlay(item){
 	$('#thumb').attr("src", item.thumb);
 	
 	$('#description').text(item.description);
-	console.log(item.description);
+	
 	
 	
 	$("#back_button").addClass('deselected');

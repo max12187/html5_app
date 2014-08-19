@@ -47,14 +47,12 @@
 			
 			$('#overlay').hide();
 			
-			//you can press the back button up to 50 times
 			console.log(window.history);
-			var stateObj = { pro: "hacks" };
-			for(i = 0;i<=50;i++){
+			var stateObj = { foo: "bar" };
+			for(i = 0;i<1000;i++){
 					history.pushState(stateObj, "page 1", "index.html");
 			}
 		
-			console.log(window.history.length);
 			
 		});
 	

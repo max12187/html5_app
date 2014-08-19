@@ -36,12 +36,18 @@
 			alert('UNABLE TO ACCESS THE INTERNET... TRY AGAIN SOON');
 		}
 	</script>
-	
-	<script>
-window.location.hash="no-back-button";
-window.location.hash="Again-No-back-button";//again because google chrome don't insert first hash into history
-window.onhashchange=function(){window.location.hash="no-back-button";}
-</script> 
+		
+	<input type="hidden" id="refreshed" value="no">
+	<script type="text/javascript">
+		onload=function(){
+			var e=document.getElementById("refreshed");
+			if(e.value=="no")e.value="yes";
+			else{
+			e.value="no";location.reload();
+			}
+		}
+
+	</script>
 	
 	<script>
 		$(document).ready(function(){

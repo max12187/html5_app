@@ -34,19 +34,19 @@ $(document).ready(function(){
    $(document).keydown(function(e){
 		var video = $('#video').get(0);
 		var seekToTime = video.currentTime;
+		console.log(video.seekable);
 		
-		
-		if (e.keyCode == 37) { 
+		if (e.keyCode == 37 && video.readyState == 4) { 
 			//left
-			seekToTime -= 1;
+			seekToTime -= 5;
 			
 			 
 			
 			//return false;
 		}
-		else if (e.keyCode == 39){
+		else if (e.keyCode == 39 && video.readyState == 4){
 			//right
-			seekToTime += 1;
+			seekToTime += 5;
 			
 			//return false;
 		}

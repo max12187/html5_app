@@ -48,7 +48,8 @@ $(document).ready(function(){
 		if (!result.error) {
 				
 				
-				
+				//NOTE:  "result.feed.entries" contains all of the items from the rss feed
+				//		 Iterate through the items and extract the data to put them in custom "Video" objects
 				for (var i = 0; i < result.feed.entries.length; i++) {
 					var entry = result.feed.entries[i];
 					
@@ -71,7 +72,7 @@ $(document).ready(function(){
 						var video = new Video(entry.title, text, video_url, durration, date);
 					}
 			
-					
+					//All of the video data and meta-data is in this array
 					dev_videos.push(video);
 					
 					
@@ -83,8 +84,7 @@ $(document).ready(function(){
 						
 				
 				
-				
-				//now the code to fill the aside with links
+				//Iterate through the array we made and populate the list
 				for(var i = 0; i < dev_videos.length; i++){
 				
 					//Use the url of the video to map to the thumbnail in the same directory
@@ -103,12 +103,13 @@ $(document).ready(function(){
 						var n = $(this).attr('class');
 						n = n.substr(n.length - 1);
 						
+						//Use the default thumbnail instead
 						this.src = "img/dev.jpg";
 						dev_videos[n].thumb = "img/dev.jpg";
 						
 					});
 					
-					//Save a reference to the list item just created
+					//Save a reference to the list item just created for later
 					dev_videos[i].li = $('#dev'+i)
 					
 					
@@ -165,7 +166,7 @@ $(document).ready(function(){
 			
 						
 					
-					//now the code to fill the aside with links
+				
 				for(var i = 0; i < quick_videos.length; i++){
 					
 					var url = quick_videos[i].url.split("/");
@@ -211,14 +212,15 @@ $(document).ready(function(){
 		if (e.keyCode == 37) { 
 			//left
 			
-			//see if the overlay is up
+			//see if the overlay intermediary screen is up
 			if(!$("#overlay").is(":visible") ){
 			
 				//if dev
 				if(activeView==0){
 					
+					//If the new video we want to select is in bounds
 					if(inBounds(devPos-1,dev_videos.length)){
-					
+						//		   current video		 	new video			      parent	     were going backwards
 						selectItem(dev_videos[devPos].li , dev_videos[devPos-1].li , $('#dev_list'), -1);
 						devPos-=1;
 						
@@ -313,8 +315,8 @@ $(document).ready(function(){
 			
 			//get the selected video
 			if(activeView == 0){
-				//display the overlay
 				
+				//display the overlay
 				if(!$("#overlay").is(":visible") ){
 					overlay(dev_videos[devPos]);
 				}
@@ -332,6 +334,7 @@ $(document).ready(function(){
 	
 			}
 			else{
+				//for quick
 			
 				if(!$("#overlay").is(":visible") ){
 					overlay(quick_videos[quickPos]);
@@ -349,7 +352,7 @@ $(document).ready(function(){
 			}
 			
 		}
-       //do stuff with "key" here...
+       
    });
 	
 });

@@ -74,6 +74,10 @@ section{
 	margin:0; 
 }
 
+#quick_list{
+	position: fixed;
+}
+
 
 #menu{
 	background-color: #7B8A96;

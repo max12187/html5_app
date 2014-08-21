@@ -91,11 +91,25 @@ $(document).ready(function(){
 					'margin' : 'auto'
 				});
 						
+				//Use the url of the video to map to the thumbnail in the same directory
+				var url = dev_videos[i].url.split("/");
+				var front = url.slice(0,4).join("/") + "/" +"thumbnails/";
+				var end = url.slice(4).join("/").split(".")[0] + ".png";
+					
+				var imgSrc = front + end;	
+				
+						
 				$('#dev'+i).append('<h2>'+dev_videos[i].title+'</h2>');
-				$('#dev'+i).append('<img src="img/dev.jpg" id = "video">');
+				$('#dev'+i).append('<img class = "devitem'+i+'" src="'+imgSrc+'" id = "video">');
 				$('#dev'+i).append('<p>'+dev_videos[i].description+'</p>');
 						
-				
+				//If the thumbnail isn't on the server, handle it.
+				$(".devitem"+i).error(function () {
+					//Use the default thumbnail instead
+					this.src = "img/dev.jpg";
+					
+						
+				});
 				
 				
 				//now the code to fill the aside with links
@@ -192,9 +206,27 @@ $(document).ready(function(){
 					'margin' : 'auto'
 				});
 						
+				//Use the url of the video to map to the thumbnail in the same directory
+				var url = quick_videos[i].url.split("/");
+				var front = url.slice(0,4).join("/") + "/" +"thumbnails/";
+				var end = url.slice(4).join("/").split(".")[0] + ".png";
+					
+				var imgSrc = front + end;	
+				
+						
 				$('#quick'+i).append('<h2>'+quick_videos[i].title+'</h2>');
-				$('#quick'+i).append('<img src="img/quick.jpg" id = "video">');
+				$('#quick'+i).append('<img class = "quickitem'+i+'" src="'+imgSrc+'" id = "video">');
 				$('#quick'+i).append('<p>'+quick_videos[i].description+'</p>');
+						
+				//If the thumbnail isn't on the server, handle it.
+				$(".quickitem"+i).error(function () {
+					//Use the default thumbnail instead
+					this.src = "img/quick.jpg";
+					
+						
+				});
+				
+				
 						
 					
 				//now the code to fill the aside with links

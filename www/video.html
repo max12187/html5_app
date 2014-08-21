@@ -45,15 +45,48 @@
 			//now insert the video
 			//this will decide what thumbnail to display
 			var type = video[1];
+			
+			//Use the url of the video to map to the thumbnail in the same directory
+			var thumb = url.split("/");
+			var front = thumb.slice(0,4).join("/") + "/" +"thumbnails/";
+			var end = thumb.slice(4).join("/").split(".")[0] + ".png";
+					
+			var imgSrc = front + end;	
+			
 			if(type=='dev'){
-				$('#display').append('<center><video id = "video" autobuffer controls poster="img/dev.jpg">' +
+						
+				$('#display').append('<center><video id = "video" autobuffer controls >' +
 				'<source src="'+url+'" type="video/mp4"></source>' +
 				'</video></center>');
+				
+				$('#video').attr("poster",imgSrc);
+			
+						
+				//If the thumbnail isn't on the server, handle it.
+				$('#video').error(function () {
+					//Use the default thumbnail instead
+					$('#video').attr("poster","img/dev.jpg");
+						
+				});
+				
+				
+				
 			}
-			else{
-				$('#display').append('<center><video id = "video" autobuffer controls poster="img/quick.jpg">' +
+			else{	
+						
+				$('#display').append('<center><video id = "video" autobuffer controls >' +
 				'<source src="'+url+'" type="video/mp4"></source>' +
 				'</video></center>');
+				
+				$('#video').attr("poster",imgSrc);
+			
+						
+				//If the thumbnail isn't on the server, handle it.
+				$('#video').error(function () {
+					//Use the default thumbnail instead
+					$('#video').attr("poster","img/quick.jpg");
+						
+				});
 			}
 			
 			

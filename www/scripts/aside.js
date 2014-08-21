@@ -57,7 +57,8 @@ $(document).ready(function(){
 		if (!result.error) {
 				
 				
-				
+				//NOTE:  "result.feed.entries" contains all of the items from the rss feed
+				//		 Iterate through the items and extract the data to put them in custom "Video" objects
 				for (var i = 0; i < result.feed.entries.length; i++) {
 					var entry = result.feed.entries[i];
 					

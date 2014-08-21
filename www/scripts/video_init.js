@@ -34,7 +34,6 @@ $(document).ready(function(){
    $(document).keydown(function(e){
 		var video = $('#video').get(0);
 		var seekToTime = video.currentTime;
-		console.log(video.seekable);
 		
 		if (e.keyCode == 37 && video.readyState == 4) { 
 			//left

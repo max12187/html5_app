@@ -9,7 +9,8 @@ function Video(title, description, url, duration, date){
 	this.thumb = null;
 }
 
-//another callback for the video links
+//callback for the video links
+//opens the video page and passes it video meta data
 function videoCallback(type, video){
 	
 		window.open("video.html?@"+type+'@'+video.url+'@'+video.title+'@'+video.description,'_self',false);
@@ -77,11 +78,6 @@ $(document).ready(function(){
 					
 					
 				}
-				
-				
-				
-				
-						
 				
 				
 				//Iterate through the array we made and populate the list
@@ -186,10 +182,6 @@ $(document).ready(function(){
 							quick_videos[i].thumb = "img/quick.jpg";
 						});
 						
-						
-						
-					
-					
 					
 					quick_videos[i].li = $('#quick'+i)
 						
@@ -199,12 +191,10 @@ $(document).ready(function(){
 		}
 		
 		//select the active elements
-		selectSeries(activeView);
-		selectItem(dev_videos[0].li,dev_videos[0].li,$('#dev_list'), 0);
-		
 		$('#dev_title').html(dev_videos[devPos].title);
 		$('#quick_title').html(quick_videos[quickPos].title);
-		
+		selectSeries(activeView);
+		selectItem(dev_videos[0].li,dev_videos[0].li,$('#dev_list'), 0);
 		
     });
 
